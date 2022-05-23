@@ -12,8 +12,63 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+        <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
     </head>
+
     <body>
-        {% block body %}{% endblock %}
+        <div class="container">
+            <div class="container-topbar">
+                <div class="searchNav"></div>
+                <a href="{{ path('app_about') }}" class="about">Qui sommes-nous ?</a>
+                {% if app.user %}
+                    <div class="userNav">
+                        <a href=""><i class="fa-solid fa-user"></i></a>
+                    </div>
+                    <div class="userNav">
+                        <a href="{{ path('app_logout') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                    </div>
+                {% else %}
+                    <div class="userNav">
+                        <a href="{{ path('app_login') }}"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                    </div>
+                    <div class="userNav">
+                        <a href="{{ path('app_register') }}"><i class="fa-solid fa-user-plus"></i></a>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="container-sidebar">
+                <div class="sidebar-logo">
+                    <a href="{{ path('app_home') }}"><span class="kntTypo">KNT</span> <span class="syncTypo">Sync</span></a>
+                </div>
+
+                <div class="sidebar-menu">
+                    <div class="menu-item">
+                        <a href="">Menu 1</a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="">Menu 2</a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="">Menu 3</a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="">Menu 4</a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="">Menu 5</a>
+                    </div>
+                </div>
+            </div>
+
+            <main class="container-main">
+                {% block body %}{% endblock %}
+            </main>
+
+            <div class="container-player"></div>
+        </div>
+
+        <footer class="footer">
+        </footer>
     </body>
 </html>

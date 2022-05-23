@@ -1,0 +1,145 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}KNT Sync - Inscription{% endblock %}
+
+{% block body %}
+    <div class="container-content">
+        <h1>Inscription</h1>
+
+        {% if notification %}
+            <div class="alert alert-info">{{ notification }}</div>
+            <hr>
+        {% endif %}
+        
+        {{ form_start(form) }}
+            <div class="form-control">
+                <div class="form-label">
+                    {{ form_label(form.email) }}
+                </div>
+                <div class="form-input">
+                    {{ form_widget(form.email) }}
+                </div>
+                <small>{{ form_help(form.email) }}</small>
+                <div class="form-error">
+                    {{ form_errors(form.email) }}
+                </div>
+            </div>
+
+            <div class="form-control">
+                <div class="form-input">
+                    {{ form_widget(form.password) }}
+                </div>
+                <small>{{ form_help(form.password) }}</small>
+                <div class="form-error">
+                    {{ form_errors(form.password) }}
+                </div>
+            </div>
+
+            <div class="form-control">
+                <div class="form-label">
+                    {{ form_label(form.firstname) }}
+                </div>
+                <div class="form-input">
+                    {{ form_widget(form.firstname) }}
+                </div>
+                <small>{{ form_help(form.firstname) }}</small>
+                <div class="form-error">
+                    {{ form_errors(form.firstname) }}
+                </div>
+            </div>
+
+            <div class="form-control">
+                <div class="form-label">
+                    {{ form_label(form.lastname) }}
+                </div>
+                <div class="form-input">
+                    {{ form_widget(form.lastname) }}
+                </div>
+                <small>{{ form_help(form.lastname) }}</small>
+                <div class="form-error">
+                    {{ form_errors(form.lastname) }}
+                </div>
+            </div>
+
+            <div class="form-control">
+                <div class="form-label">
+                    {{ form_label(form.job) }}
+                </div>
+                <div class="form-input">
+                    {{ form_widget(form.job) }}
+                </div>
+                <small>{{ form_help(form.job) }}</small>
+                <div class="form-error">
+                    {{ form_errors(form.job) }}
+                </div>
+            </div>
+
+            <div class="form-control">
+                <div class="form-label">
+                    {{ form_label(form.address) }}
+                </div>
+                <div class="form-input">
+                    {{ form_widget(form.address) }}
+                </div>
+                <small>{{ form_help(form.address) }}</small>
+                <div class="form-error">
+                    {{ form_errors(form.address) }}
+                </div>
+            </div>
+
+            <div class="form-control">
+                <div class="form-label">
+                    {{ form_label(form.postalcode) }}
+                </div>
+                <div class="form-input">
+                    {{ form_widget(form.postalcode) }}
+                </div>
+                <small>{{ form_help(form.postalcode) }}</small>
+                <div class="form-error">
+                    {{ form_errors(form.postalcode) }}
+                </div>
+            </div>
+
+            <div class="form-control">
+                <div class="form-label">
+                    {{ form_label(form.city) }}
+                </div>
+                <div class="form-input">
+                    {{ form_widget(form.city) }}
+                </div>
+                <small>{{ form_help(form.city) }}</small>
+                <div class="form-error">
+                    {{ form_errors(form.city) }}
+                </div>
+            </div>
+
+            <div class="form-control">
+                <div class="form-label">
+                    {{ form_label(form.country) }}
+                </div>
+                <div class="form-input">
+                    {{ form_widget(form.country) }}
+                </div>
+                <small>{{ form_help(form.country) }}</small>
+                <div class="form-error">
+                    {{ form_errors(form.country) }}
+                </div>
+            </div>
+
+            <div class="form-control">
+                <div class="form-label">
+                    {{ form_label(form.phone) }}
+                </div>
+                <div class="form-input">
+                    {{ form_widget(form.phone) }}
+                </div>
+                <small>{{ form_help(form.phone) }}</small>
+                <div class="form-error">
+                    {{ form_errors(form.phone) }}
+                </div>
+            </div>
+
+            {{ form_widget(form.submit) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %} 

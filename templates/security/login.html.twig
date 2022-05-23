@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}KNT Sync - Connexion{% endblock %}
+
+{% block body %}
+    <div class="container-content">
+        <h1 class="">Connexion</h1>
+
+        <form method="post">
+            {% if error %}
+                <div class="">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {% if app.user %}
+                <div class="">
+                    You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
+
+            <div class="form-control">
+                <div class="form-label">
+                    <label for="inputEmail">Votre email</label>
+                </div>
+                <div class="form-input">
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" autocomplete="email" required autofocus>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <div class="form-label">
+                    <label for="inputPassword">Votre password</label>
+                </div>
+                <div class="form-input">
+                    <input type="password" name="password" id="inputPassword" autocomplete="current-password" required>
+                </div>
+            </div>
+
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            {#
+                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                See https://symfony.com/doc/current/security/remember_me.html
+
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Remember me
+                    </label>
+                </div>
+            #}
+
+            <button class="buttonSubmit" type="submit">
+                Se connecter
+            </button>
+        </form>
+    </div>
+{% endblock %}
