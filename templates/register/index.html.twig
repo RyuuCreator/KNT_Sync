@@ -12,6 +12,34 @@
         {% endif %}
         
         {{ form_start(form) }}
+            <div class="form-control form-control-form">
+                <div class="form-control-item">
+                    <div class="form-label">
+                        {{ form_label(form.firstname) }}
+                    </div>
+                    <div class="form-input">
+                        {{ form_widget(form.firstname) }}
+                    </div>
+                    <small>{{ form_help(form.firstname) }}</small>
+                    <div class="form-error">
+                        {{ form_errors(form.firstname) }}
+                    </div>
+                </div>
+
+                <div class="form-control-item">
+                    <div class="form-label">
+                        {{ form_label(form.lastname) }}
+                    </div>
+                    <div class="form-input">
+                        {{ form_widget(form.lastname) }}
+                    </div>
+                    <small>{{ form_help(form.lastname) }}</small>
+                    <div class="form-error">
+                        {{ form_errors(form.lastname) }}
+                    </div>
+                </div>
+            </div>
+
             <div class="form-control">
                 <div class="form-label">
                     {{ form_label(form.email) }}
@@ -35,48 +63,37 @@
                 </div>
             </div>
 
-            <div class="form-control">
-                <div class="form-label">
-                    {{ form_label(form.firstname) }}
+            <div class="form-control form-control-form">
+                <div class="form-control-item">
+                    <div class="form-label">
+                        {{ form_label(form.job) }}
+                    </div>
+                    <div class="form-input">
+                        {{ form_widget(form.job) }}
+                    </div>
+                    <small>{{ form_help(form.job) }}</small>
+                    <div class="form-error">
+                        {{ form_errors(form.job) }}
+                    </div>
                 </div>
-                <div class="form-input">
-                    {{ form_widget(form.firstname) }}
-                </div>
-                <small>{{ form_help(form.firstname) }}</small>
-                <div class="form-error">
-                    {{ form_errors(form.firstname) }}
+
+                <div class="form-control-item">
+                    <div class="form-label">
+                        {{ form_label(form.phone) }} <small>(facultatif)</small>
+                    </div>
+                    <div class="form-input">
+                        {{ form_widget(form.phone) }}
+                    </div>
+                    <small>{{ form_help(form.phone) }}</small>
+                    <div class="form-error">
+                        {{ form_errors(form.phone) }}
+                    </div>
                 </div>
             </div>
 
             <div class="form-control">
                 <div class="form-label">
-                    {{ form_label(form.lastname) }}
-                </div>
-                <div class="form-input">
-                    {{ form_widget(form.lastname) }}
-                </div>
-                <small>{{ form_help(form.lastname) }}</small>
-                <div class="form-error">
-                    {{ form_errors(form.lastname) }}
-                </div>
-            </div>
-
-            <div class="form-control">
-                <div class="form-label">
-                    {{ form_label(form.job) }}
-                </div>
-                <div class="form-input">
-                    {{ form_widget(form.job) }}
-                </div>
-                <small>{{ form_help(form.job) }}</small>
-                <div class="form-error">
-                    {{ form_errors(form.job) }}
-                </div>
-            </div>
-
-            <div class="form-control">
-                <div class="form-label">
-                    {{ form_label(form.address) }}
+                    {{ form_label(form.address) }} <small>(facultatif)</small>
                 </div>
                 <div class="form-input">
                     {{ form_widget(form.address) }}
@@ -87,29 +104,31 @@
                 </div>
             </div>
 
-            <div class="form-control">
-                <div class="form-label">
-                    {{ form_label(form.postalcode) }}
+            <div class="form-control form-control-form">
+                <div class="form-control-item">
+                    <div class="form-label">
+                        {{ form_label(form.postalcode) }} <small>(facultatif)</small>
+                    </div>
+                    <div class="form-input">
+                        {{ form_widget(form.postalcode) }}
+                    </div>
+                    <small>{{ form_help(form.postalcode) }}</small>
+                    <div class="form-error">
+                        {{ form_errors(form.postalcode) }}
+                    </div>
                 </div>
-                <div class="form-input">
-                    {{ form_widget(form.postalcode) }}
-                </div>
-                <small>{{ form_help(form.postalcode) }}</small>
-                <div class="form-error">
-                    {{ form_errors(form.postalcode) }}
-                </div>
-            </div>
 
-            <div class="form-control">
-                <div class="form-label">
-                    {{ form_label(form.city) }}
-                </div>
-                <div class="form-input">
-                    {{ form_widget(form.city) }}
-                </div>
-                <small>{{ form_help(form.city) }}</small>
-                <div class="form-error">
-                    {{ form_errors(form.city) }}
+                <div class="form-control-item">
+                    <div class="form-label">
+                        {{ form_label(form.city) }} <small>(facultatif)</small>
+                    </div>
+                    <div class="form-input">
+                        {{ form_widget(form.city) }}
+                    </div>
+                    <small>{{ form_help(form.city) }}</small>
+                    <div class="form-error">
+                        {{ form_errors(form.city) }}
+                    </div>
                 </div>
             </div>
 
@@ -123,19 +142,6 @@
                 <small>{{ form_help(form.country) }}</small>
                 <div class="form-error">
                     {{ form_errors(form.country) }}
-                </div>
-            </div>
-
-            <div class="form-control">
-                <div class="form-label">
-                    {{ form_label(form.phone) }}
-                </div>
-                <div class="form-input">
-                    {{ form_widget(form.phone) }}
-                </div>
-                <small>{{ form_help(form.phone) }}</small>
-                <div class="form-error">
-                    {{ form_errors(form.phone) }}
                 </div>
             </div>
 

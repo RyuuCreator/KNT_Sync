@@ -42,11 +42,12 @@ a {
     z-index: 1;
 }
 
-.userNav,
-.about {
+.userNav {
     display: flex;
     align-items: center;
-    height: 32px;
+    padding: 10px 15px;
+    border-radius: 50px;
+    background-color: #2ECF81;
     margin-left: 16px;
 }
 
@@ -60,7 +61,9 @@ a {
 .container-sidebar {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 220px;
+    height: calc(100% - 80px);
     position: fixed;
     left: 0;
     top: 0;
@@ -92,11 +95,25 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 250px;
 }
 
 .menu-item {
     margin: 5px;
+}
+
+.sidebar-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-info {
+    font-size: 1.2rem;
+    margin: 3px;
+}
+
+.copyright {
+    color: #00000080;
 }
 
 /* main - container/content */
@@ -121,13 +138,13 @@ a {
 #slider {
 	position: relative;
 	width: 100%;
-    height: 400px;
+    height: 40rem;
 	overflow: hidden;
 }
 
 #slider #line {
 	height: 5px;
-	background: rgba(0,0,0,0.5);
+	background: #2ecf81;
 	z-index: 1;
 	position: absolute;
 	bottom: 0;
@@ -149,14 +166,14 @@ a {
 	width: 12px;
 	height: 12px;
 	border-radius: 100%;
-	background: #ffffff50;
+	background: #f5f5f57e;
 	margin: 0 0.25em;
 	cursor: pointer;
 }
 
 #slider #dots li:hover,
 #slider #dots li.active {
-	background: white;
+	background: whitesmoke;
 }
 
 @keyframes line {
@@ -221,31 +238,10 @@ ul#move li {
 	padding: 0;
 	display: flex;
 	justify-content: center;
-	align-items: center;
 }
 
 ul#move li img {
 	width: 100%;
-}
-
-ul#move li:nth-child(1) {
-	background: #657765;
-}
-
-ul#move li:nth-child(2) {
-	background: #456174;
-}
-
-ul#move li:nth-child(3) {
-	background: #984;
-}
-
-ul#move li:nth-child(4) {
-	background: #445566;
-}
-
-ul#move li:nth-child(5) {
-	background: #744674;
 }
 
 /* main - container singin/singup*/
@@ -261,11 +257,23 @@ form button {
 
 form button {
     width: 100%;
-    margin-top: 5px;
+    margin-top: 3rem;
+    font-size: 2rem;
+    padding: 5px 0;
+	background: #2ecf81;
+    border: none;
+    border-radius: 5px;
 }
 
+.form-control-form,
+#register_password {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-control-item,
 #register_password div {
-    margin: 10px 0;
+    width: 49%;
 }
 
 .form-input {

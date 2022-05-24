@@ -77,21 +77,26 @@ class RegisterType extends AbstractType
                     'placeholder' => 'Votre nom.'
                 ],
             ])
-            ->add('job')
+            ->add('job', TextType::class, [
+                'label' => 'Poste',
+                'attr' => [
+                    'placeholder' => 'L\'intituler de votre poste'
+                ]
+            ])
             ->add('address', TextType::class, [
-                'label' => 'Votre adresse (facultatif)',
+                'label' => 'Votre adresse',
                 'attr' => [
                     'placeholder' => 'ex: 8 rue des lylas...'
                 ]
             ])
             ->add('postalcode', TextType::class, [
-                'label' => 'Votre code postal (facultatif)',
+                'label' => 'Votre code postal',
                 'attr' => [
                     'placeholder' => 'Entrez votre code postal'
                 ]
             ])
             ->add('city', TextType::class, [
-                'label' => 'Ville (facultatif)',
+                'label' => 'Ville',
                 'attr' => [
                     'placeholder' => 'Entrez votre ville'
                 ]
@@ -103,7 +108,7 @@ class RegisterType extends AbstractType
                 ]
             ])
             ->add('phone', TelType::class, [
-                'label' => 'Votre téléphone (facultatif)',
+                'label' => 'Votre téléphone',
                 'attr' => [
                     'placeholder' => 'Entrez votre téléphone'
                 ]

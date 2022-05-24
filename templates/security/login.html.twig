@@ -4,15 +4,15 @@
 
 {% block body %}
     <div class="container-content">
-        <h1 class="">Connexion</h1>
+        <h1>Connexion</h1>
 
         <form method="post">
             {% if error %}
-                <div class="">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
 
             {% if app.user %}
-                <div class="">
+                <div>
                     You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
                 </div>
             {% endif %}
