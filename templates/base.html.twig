@@ -22,29 +22,20 @@
                     <i class="fa-solid fa-magnifying-glass"></i> Ici la futur barre de recherche
                 </div>
                 {% if app.user %}
-                    <div class="userNav">
-                        <a href=""><i class="fa-solid fa-user"></i></a>
-                    </div>
-                    <div class="userNav">
-                        <a href="{{ path('app_logout') }}">Déconnection</a>
-                    </div>
+                    <a class="userNav" href=""><i class="fa-solid fa-user"></i></a>
+                    <a class="userNav" href="{{ path('app_logout') }}">Déconnection</a>
                 {% else %}
-                    <div class="userNav">
-                        <a href="{{ path('app_login') }}">Connexion</a>
-                    </div>
-                    <div class="userNav">
-                        <a href="{{ path('app_register') }}">Inscription</i></a>
-                    </div>
+                    <a  class="userNav userNavLogin" href="{{ path('app_login') }}">Connexion</a>
+                    <a  class="userNav" href="{{ path('app_register') }}">Inscription</a>
                 {% endif %}
             </div>
 
-            <div class="container-sidebar">
+            <div class="container-sidebar {% if app.user %} container-sidebar-player {% endif %}">
                 <div class="sidebar-logo">
                     <a href="{{ path('app_home') }}"><span class="kntTypo">KNT</span> <span class="syncTypo">Sync</span></a>
                 </div>
 
                 <div class="sidebar-menu">
-                    <h3>Lui ?</h3> 
                     <div>
                         <div class="menu-item">
                             <a href="http://knt.fr/">KNT Music & Live</a>
@@ -58,22 +49,6 @@
                         <div class="menu-item">
                             <a href="#">Contact</a>
                         </div>
-                    </div>
-
-                    <br><br>
-
-                    <h3>ou lui ?</h3>
-                    <div class="menu-item">
-                        <a href="http://knt.fr/">KNT Music & Live</a>
-                    </div>
-                    <div class="menu-item">
-                        <a href="#">Partenaires</a>
-                    </div>
-                    <div class="menu-item">
-                        <a href="{{ path('app_about') }}" class="about">Qui sommes-nous ?</a>
-                    </div>
-                    <div class="menu-item">
-                        <a href="#">Contact</a>
                     </div>
                 </div>
 
@@ -96,7 +71,9 @@
             <div class="container-player"></div>
         </div>
 
-        <footer class="footer">
-        </footer>
+        {% if app.user %}
+            <footer class="player">
+            </footer>
+        {% endif %}
     </body>
 </html>

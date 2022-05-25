@@ -29,7 +29,7 @@ class RegisterType extends AbstractType
                     'maxMessage' => 'Votre mot de passe peut contenir au maximum {{ limit }} caractères.'
                 ]),
                 'attr' => [
-                    "placeholder" => 'Votre email'
+                    "placeholder" => 'Entrer votre email'
                 ]
             ])
             ->add('password', RepeatedType::class, [
@@ -43,7 +43,7 @@ class RegisterType extends AbstractType
                         'minMessage' => 'Votre mot de passe doit contenir au moins {{ limit }} caractères.'
                     ]),
                     'attr' => [
-                        'placeholder' => 'Votre mot de passe.'
+                        'placeholder' => 'Entrer votre mot de passe.'
                     ]
                 ],
                 'second_options' => [ 
@@ -62,7 +62,7 @@ class RegisterType extends AbstractType
                     'maxMessage' => 'Votre prénom peut contenir au maximum {{ limit }} caractères.'
                 ]),
                 'attr' => [
-                    'placeholder' => 'Votre prénom.'
+                    'placeholder' => 'Entrer votre prénom.'
                 ],
             ])
             ->add('lastname', TextType::class, [
@@ -74,7 +74,7 @@ class RegisterType extends AbstractType
                     'maxMessage' => 'Votre nom peut contenir au maximum {{ limit }} caractères.'
                 ]),
                 'attr' => [
-                    'placeholder' => 'Votre nom.'
+                    'placeholder' => 'Entrer votre nom.'
                 ],
             ])
             ->add('job', TextType::class, [
@@ -92,25 +92,24 @@ class RegisterType extends AbstractType
             ->add('postalcode', TextType::class, [
                 'label' => 'Votre code postal',
                 'attr' => [
-                    'placeholder' => 'Entrez votre code postal'
+                    'placeholder' => 'Entrer votre code postal'
                 ]
             ])
             ->add('city', TextType::class, [
                 'label' => 'Ville',
                 'attr' => [
-                    'placeholder' => 'Entrez votre ville'
+                    'placeholder' => 'Entrer votre ville'
                 ]
             ])
             ->add('country', CountryType::class, [
                 'label' => 'Pays',
-                'attr' => [
-                    'placeholder' => 'Entrez votre pays'
-                ]
+                
+                'placeholder' => 'Slectionner votre pays',
             ])
             ->add('phone', TelType::class, [
                 'label' => 'Votre téléphone',
                 'attr' => [
-                    'placeholder' => 'Entrez votre téléphone'
+                    'placeholder' => 'Entrer votre téléphone'
                 ]
             ])
             ->add('submit', SubmitType::class, [
