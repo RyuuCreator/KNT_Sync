@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccountController!{% endblock %}
+
+{% block body %}
+    <div class="container-content">
+        <h1>Votre compte</h1>
+        <div class="content-info">
+            <h3>Vos informations personnelles</h3>
+            <div class="container-info-item">
+                <div class="info-item">
+                    <b>Poste : </b>{{ user.job }} 
+                </div>
+                <div class="info-item">
+                    <b>Nom : </b>{{ user.firstname }} {{ user.lastname }}
+                </div>
+                <div class="info-item">
+                    <b>E-mail : </b>{{ user.email }}
+                </div>
+                <div class="info-item">
+                    <b>Adresse : </b>{{ user.address }}
+                </div>
+                <div class="info-item">
+                    {{ user.city }}, {{ user.postalcode }} {{ user.country }}
+                </div>
+                <div class="info-item">
+                    <b>Téléphone : </b>{{ user.phone }}
+                </div>
+            </div>
+        </div>
+        <div class="container-cart-order">
+            <div class="content-cart">
+                <h3>Votre Panier</h3>
+            </div>
+
+            <div class="content-order">
+                <h3>Vos commandes</h3>
+            </div>
+        </div>
+    </div>
+{% endblock %}
