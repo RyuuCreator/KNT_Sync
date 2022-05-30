@@ -36,6 +36,9 @@ class Resource
     #[ORM\ManyToMany(targetEntity: Ambiance::class, inversedBy: 'resources')]
     private $ambiance;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $slug;
+
     public function __construct()
     {
         $this->ambiance = new ArrayCollection();
@@ -138,6 +141,18 @@ class Resource
     public function removeAmbiance(Ambiance $ambiance): self
     {
         $this->ambiance->removeElement($ambiance);
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

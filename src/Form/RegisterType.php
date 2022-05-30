@@ -84,29 +84,34 @@ class RegisterType extends AbstractType
                 ]
             ])
             ->add('address', TextType::class, [
+                'required'   => false,
                 'label' => 'Votre adresse',
                 'attr' => [
                     'placeholder' => 'ex: 8 rue des lylas...'
                 ]
             ])
             ->add('postalcode', TextType::class, [
+                'required'   => false,
                 'label' => 'Votre code postal',
                 'attr' => [
                     'placeholder' => 'Entrer votre code postal'
                 ]
             ])
             ->add('city', TextType::class, [
+                'required'   => false,
                 'label' => 'Ville',
                 'attr' => [
                     'placeholder' => 'Entrer votre ville'
                 ]
             ])
             ->add('country', CountryType::class, [
+                'required'   => false,
                 'label' => 'Pays',
                 
                 'placeholder' => 'Slectionner votre pays',
             ])
             ->add('phone', TelType::class, [
+                'required'   => false,
                 'label' => 'Votre téléphone',
                 'attr' => [
                     'placeholder' => 'Entrer votre téléphone'

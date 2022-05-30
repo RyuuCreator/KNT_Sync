@@ -18,19 +18,19 @@
     <body>
         <div class="container">
             <div class="container-topbar">
-                <div class="searchNav">
+                <div class="search-nav">
                     <i class="fa-solid fa-magnifying-glass"></i> Ici la futur barre de recherche
                 </div>
                 {% if app.user %}
-                    <a class="userNav" href="{{ path('app_account') }}"><i class="fa-solid fa-user"></i></a>
-                    <a class="userNav" href="{{ path('app_logout') }}">Déconnection</a>
+                    <a class="user-nav user-nav-account" href="{{ path('app_account') }}"><i class="fa-solid fa-user"></i></a>
+                    <a class="user-nav" href="{{ path('app_logout') }}">Déconnection</a>
                 {% else %}
-                    <a  class="userNav userNavLogin" href="{{ path('app_login') }}">Connexion</a>
-                    <a  class="userNav" href="{{ path('app_register') }}">Inscription</a>
+                    <a  class="user-nav user-nav-login" href="{{ path('app_login') }}">Connexion</a>
+                    <a  class="user-nav" href="{{ path('app_register') }}">Inscription</a>
                 {% endif %}
             </div>
 
-            <div class="container-sidebar {% if app.user %} container-sidebar-player {% endif %}">
+            <div class="container-sidebar {% if block('player') is defined %}{% if app.user %} container-sidebar-player {% endif %}{% endif %}">
                 <div class="sidebar-logo">
                     <a href="{{ path('app_home') }}"><span class="kntTypo">KNT</span> <span class="syncTypo">Sync</span></a>
                 </div>
@@ -67,13 +67,13 @@
             <main class="container-main">
                 {% block body %}{% endblock %}
             </main>
-
-            <div class="container-player"></div>
         </div>
 
-        {% if app.user %}
-            <footer class="player">
-            </footer>
+        {% if block('player') is defined %}
+            {% if app.user %}
+                <div class="player">
+                </div>
+            {% endif %}
         {% endif %}
     </body>
 </html>

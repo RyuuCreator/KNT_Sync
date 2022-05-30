@@ -21,6 +21,12 @@ class Category
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Resource::class)]
     private $resources;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $slug;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $picture;
+
     public function __construct()
     {
         $this->resources = new ArrayCollection();
@@ -69,6 +75,30 @@ class Category
                 $resource->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(string $picture): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }

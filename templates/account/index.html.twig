@@ -1,30 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccountController!{% endblock %}
+{% block title %}KNT Sync - Mon compte{% endblock %}
 
 {% block body %}
     <div class="container-content">
         <h1>Votre compte</h1>
-        <div class="content-info">
+        {% if is_granted('ROLE_ADMIN') %}
+            <small>Accéder a votre espace <a href="{{ path("app_admin") }}"><u>administrateur</u></a></small>
+        {% endif %}
+        <div class="content-info {% if is_granted('ROLE_ADMIN') %} content-info-admin {% endif %}">
             <h3>Vos informations personnelles</h3>
             <div class="container-info-item">
                 <div class="info-item">
-                    <b>Poste : </b>{{ user.job }} 
+                    <div class="info-label">
+                        <b>Poste&#8239;: </b>
+                    </div>
+                    {{ user.job }} 
                 </div>
                 <div class="info-item">
-                    <b>Nom : </b>{{ user.firstname }} {{ user.lastname }}
+                    <div class="info-label">
+                        <b>Nom&#8239;: </b>
+                    </div>
+                    {{ user.firstname }} {{ user.lastname }}
                 </div>
                 <div class="info-item">
-                    <b>E-mail : </b>{{ user.email }}
+                    <div class="info-label">
+                        <b>E-mail&#8239;: </b>
+                    </div>
+                    {{ user.email }}
                 </div>
                 <div class="info-item">
-                    <b>Adresse : </b>{{ user.address }}
+                    <div class="info-label">
+                        <b>Adresse&#8239;: </b>
+                    </div>
+                    {{ user.address }} {{ user.city }} {% if user.postalcode %},{% endif %} {{ user.postalcode }}
                 </div>
                 <div class="info-item">
-                    {{ user.city }}, {{ user.postalcode }} {{ user.country }}
+                    <div class="info-label">
+                        <b>Pays&#8239;: </b>
+                    </div>
+                    {{ user.country|country_name }}
                 </div>
                 <div class="info-item">
-                    <b>Téléphone : </b>{{ user.phone }}
+                    <div class="info-label">
+                        <b>Téléphone&#8239;: </b>
+                    </div>
+                    {{ user.phone }}
                 </div>
             </div>
         </div>
@@ -39,3 +60,5 @@
         </div>
     </div>
 {% endblock %}
+
+{% block player %}{% endblock %}

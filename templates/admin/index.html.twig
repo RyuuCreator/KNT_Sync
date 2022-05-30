@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}KNT Sync - Administration{% endblock %}
+
+{% block body %}
+    <div class="container-content">
+        <h1>Administation</h1>
+
+        <h3>Catégories</h3>
+        <div class="container-category">
+            {% for categorie in categories %}
+                <div class="content-category">
+                    <img src="{{ categorie.picture }}" alt="">
+                    <h1>{{ categorie.label }}</h1>
+                </div>
+            {% endfor %}
+
+            <a href="">
+                <div class="content-add">
+                    <h1>+</h1>
+                </div>
+            </a>
+        </div>
+
+        <h3>Ambiances</h3>
+        <div class="container-ambiance">
+            {% for ambiance in ambiances %}
+                <div class="content-category">
+                    <img src="{{ ambiance.picture }}" alt="">
+                    <h1>{{ ambiance.label }}</h1>
+                </div>
+            {% endfor %}
+
+            <a href="">
+                <div class="content-add">
+                    <h1>+</h1>
+                </div>
+            </a>
+        </div>
+
+        <h3>Ressources</h3>
+        <div class="container-resource">
+            {% for resource in resources %}
+                <div class="content-resource">
+                    <img src="{{ resource.cover }}" alt="">
+                    <div class="content-resource-info">
+                        information ici
+                    </div>
+                </div>
+            {% endfor %}
+
+            <a href="">
+                <div class="content-add">
+                    <h1>+</h1>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock %}
