@@ -6,6 +6,7 @@ use App\Repository\AmbianceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: AmbianceRepository::class)]
 class Ambiance
@@ -21,7 +22,8 @@ class Ambiance
     #[ORM\ManyToMany(targetEntity: Resource::class, mappedBy: 'ambiance')]
     private $resources;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[Gedmo\Slug(fields: ['label'])]
+    #[ORM\Column(type: 'string', length: 128, unique: true)]
     private $slug;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -79,13 +81,6 @@ class Ambiance
     public function getSlug(): ?string
     {
         return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
-
-        return $this;
     }
 
     public function getPicture(): ?string

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Category{% endblock %}
+
+{% block body %}
+    <div class="container-content">
+        <h1>Créer une Catégorie</h1>
+
+        <div class="content-views">
+            <div class="content-category" id="content-category">
+                <label for="file"><img id="img" src="https://cdn.discordapp.com/attachments/428941522717900810/981211463995777056/dummy_165x50_ffffff_e5e5e5_-.png"></label>
+                <h1 id="input-label">Exemple</h1>
+            </div>
+        </div>
+
+        <input type="button" value="Afficher" onclick="afficher()"><br><br>
+
+        {{ include('admin/category/_form.html.twig') }}
+
+        <small><a href="{{ path('app_admin') }}">Retour sur la page adminitration</a></small>
+    </div>
+
+    <script>
+        function afficher(){
+            let saisie = document.getElementById("category_label").value;
+            document.getElementById("input-label").innerText = saisie;
+        }
+
+        const reader = new FileReader();
+        const fileInput = document.getElementById("category_picture");
+        const saisieH1 = document.getElementById("category_label");
+
+        reader.onload = e => {
+            img.src = e.target.result;
+        }
+
+        saisieH1.onload = e => {
+            h1.innerHtml = e.target.result;
+        }
+
+        fileInput.addEventListener('change', e => {
+            const picture = e.target.files[0];
+            reader.readAsDataURL(picture);
+            console.log(picture)
+        })
+    </script>
+{% endblock %}

@@ -16,7 +16,6 @@ import '@fortawesome/fontawesome-free/js/all.js';
 window.onload = function() {
 
     let slider = document.querySelector('#slider');
-    let move = document.querySelector('#move');
     let moveLi = Array.from(document.querySelectorAll('#slider #move li'));
     let forword = document.querySelector('#slider #forword');
     let back = document.querySelector('#slider #back');
@@ -100,5 +99,7 @@ window.onload = function() {
         line.style.animation = 'line ' + (time / 1000) + 's linear infinite';
     }
 }
+
+
 
 

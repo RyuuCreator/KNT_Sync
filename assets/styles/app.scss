@@ -399,10 +399,35 @@ form button:hover {
     position: relative;
     width: 165px;
     height: 50px;
-    margin: 15px 25px;
-    border-radius: 5px;
     text-align: center;
     overflow: hidden;
+}
+
+.content-resource {
+    display: flex;
+    text-align: center;
+    width: 300px;
+    height: 150px;
+    background-color: #2ECF81;
+    overflow: hidden;
+}
+
+.container-resource .content-add {
+    position: relative;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+}
+
+.content-category,
+.container-category .content-add,
+.content-ambiance,
+.container-ambiance .content-add,
+.content-resource,
+.container-resource .content-add {
+    margin: 15px 25px;
+    border-radius: 5px;
+    box-shadow: 0px 15px 20px -15px rgba(0,0,0,0.75);
 }
 
 .content-add{
@@ -417,6 +442,11 @@ form button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.content-resource img {
+    height: 100%;
+    width: auto;
 }
 
 .content-category h1,
@@ -438,33 +468,6 @@ form button:hover {
 
 .content-add h1{
     color: gray;
-}
-
-.content-resource {
-    display: flex;
-    text-align: center;
-    width: 300px;
-    height: 150px;
-    background-color: #2ECF81;
-    overflow: hidden;
-}
-
-.content-resource,
-.container-resource .content-add {
-    margin: 15px 25px;
-    border-radius: 5px;
-}
-
-.container-resource .content-add {
-    position: relative;
-    text-align: center;
-    width: 150px;
-    height: 150px;
-}
-
-.content-resource img {
-    height: 100%;
-    width: auto;
 }
 
 .content-resource-info {

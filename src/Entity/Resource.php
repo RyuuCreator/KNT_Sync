@@ -36,7 +36,8 @@ class Resource
     #[ORM\ManyToMany(targetEntity: Ambiance::class, inversedBy: 'resources')]
     private $ambiance;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[Gedmo\Slug(fields: ['artistname, trackname'])]
+    #[ORM\Column(type: 'string', length: 128, unique: true)]
     private $slug;
 
     public function __construct()
@@ -148,12 +149,5 @@ class Resource
     public function getSlug(): ?string
     {
         return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
-
-        return $this;
     }
 }

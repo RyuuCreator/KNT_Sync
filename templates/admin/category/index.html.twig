@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category index{% endblock %}
+
+{% block body %}
+    <div class="container-content">
+        <h1>Administration</h1>
+
+        <h3>Catégories</h3>
+        <div class="container-category">
+            {% for category in categories %}
+                <div class="content-category">
+                    <img src="{{ category.picture }}" alt="">
+                    <h1>{{ category.label }}</h1>
+                </div>
+            {% endfor %}
+
+            <a href="{{ path('app_category_new') }}">
+                <div class="content-add">
+                    <h1>+</h1>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock %}

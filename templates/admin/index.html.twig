@@ -4,18 +4,20 @@
 
 {% block body %}
     <div class="container-content">
-        <h1>Administation</h1>
+        <h1>Administration</h1>
 
-        <h3>Catégories</h3>
+        <h3><a href="{{ path('app_category_index') }}">Catégories</a></h3>
         <div class="container-category">
-            {% for categorie in categories %}
+            {% for category in categories %}
                 <div class="content-category">
-                    <img src="{{ categorie.picture }}" alt="">
-                    <h1>{{ categorie.label }}</h1>
+                    <a href="{{ path('app_category_edit', { 'id' : category.id } ) }}">
+                        <img src="{{ category.picture }}" alt="">
+                        <h1>{{ category.label }}</h1>
+                    </a>
                 </div>
             {% endfor %}
 
-            <a href="">
+            <a href="{{ path('app_category_new') }}">
                 <div class="content-add">
                     <h1>+</h1>
                 </div>
@@ -25,7 +27,7 @@
         <h3>Ambiances</h3>
         <div class="container-ambiance">
             {% for ambiance in ambiances %}
-                <div class="content-category">
+                <div class="content-ambiance">
                     <img src="{{ ambiance.picture }}" alt="">
                     <h1>{{ ambiance.label }}</h1>
                 </div>
