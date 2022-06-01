@@ -6,6 +6,7 @@ use App\Repository\ResourceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: ResourceRepository::class)]
 class Resource
@@ -21,7 +22,7 @@ class Resource
     #[ORM\Column(type: 'string', length: 255)]
     private $trackname;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'text')]
     private $cover;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -36,7 +37,7 @@ class Resource
     #[ORM\ManyToMany(targetEntity: Ambiance::class, inversedBy: 'resources')]
     private $ambiance;
 
-    #[Gedmo\Slug(fields: ['artistname, trackname'])]
+    #[Gedmo\Slug(fields: ['artistname', 'trackname'])]
     #[ORM\Column(type: 'string', length: 128, unique: true)]
     private $slug;
 

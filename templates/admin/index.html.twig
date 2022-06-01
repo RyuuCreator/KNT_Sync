@@ -10,7 +10,7 @@
         <div class="container-category">
             {% for category in categories %}
                 <div class="content-category">
-                    <a href="{{ path('app_category_edit', { 'id' : category.id } ) }}">
+                    <a href="{{ path('app_category_show', { 'id' : category.id } ) }}">
                         <img src="{{ category.picture }}" alt="">
                         <h1>{{ category.label }}</h1>
                     </a>
@@ -28,12 +28,14 @@
         <div class="container-ambiance">
             {% for ambiance in ambiances %}
                 <div class="content-ambiance">
-                    <img src="{{ ambiance.picture }}" alt="">
-                    <h1>{{ ambiance.label }}</h1>
+                    <a href="{{ path('app_ambiance_show', { 'id' : ambiance.id } ) }}">
+                        <img src="{{ ambiance.picture }}" alt="">
+                        <h1>{{ ambiance.label }}</h1>
+                    </a>
                 </div>
             {% endfor %}
 
-            <a href="">
+            <a href="{{ path('app_ambiance_new') }}">
                 <div class="content-add">
                     <h1>+</h1>
                 </div>
@@ -44,14 +46,18 @@
         <div class="container-resource">
             {% for resource in resources %}
                 <div class="content-resource">
-                    <img src="{{ resource.cover }}" alt="">
-                    <div class="content-resource-info">
-                        information ici
-                    </div>
+                    <a href="{{ path('app_resource_show', { 'id' : resource.id } ) }}">
+                        <img src="{{ resource.cover }}" alt="">
+                        <div class="content-resource-info">
+                            <h1>{{ resource.trackname }}</h1>
+                            <h2>{{ resource.artistname }}</h1>
+                            <p>{{ resource.description }}</p>
+                        </div>
+                    </a>
                 </div>
             {% endfor %}
 
-            <a href="">
+            <a href="{{ path('app_resource_new') }}">
                 <div class="content-add">
                     <h1>+</h1>
                 </div>

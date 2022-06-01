@@ -22,7 +22,7 @@ class Category
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Resource::class)]
     private $resources;
 
-#[Gedmo\Slug(fields: ['label'])]
+    #[Gedmo\Slug(fields: ['label'])]
     #[ORM\Column(type: 'string', length: 128, unique: true)]
     private $slug;
 

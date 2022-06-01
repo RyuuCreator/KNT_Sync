@@ -1,0 +1,28 @@
+{{ form_start(form) }}
+    <div class="form-control">
+        <div class="form-label">
+            <label for="ambiance_label">Le nom de l'ambiance</label>
+        </div>
+        <div class="form-input">
+            {{ form_widget(form.label) }}
+        </div>
+        <small>{{ form_help(form.label) }}</small>
+        <div class="form-error">
+            {{ form_errors(form.label) }}
+        </div>
+    </div>
+    
+    <div class="form-control">
+        <div class="form-label">
+            <label for="ambiance_picture">Image de fond de l'ambiance</label>
+        </div>
+        <div class="form-input">
+            {{ form_widget(form.picture) }}
+        </div>
+        <small>{{ form_help(form.picture) }}</small>
+        <div class="form-error">
+            {{ form_errors(form.picture) }}
+        </div>
+    </div>
+    <button class="btn">{{ button_label|default('Valider') }}</button>
+{{ form_end(form) }}

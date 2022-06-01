@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resource index{% endblock %}
+
+{% block body %}
+    <div class="container-content">
+        <h1>Administration</h1>
+        <small>Retourner sur votre espace <a href="{{ path("app_admin") }}"><u>administrateur</u></a></small>
+
+        <h3>Ressources</h3>
+        <div class="container-resource">
+            {% for resource in resources %}
+                <div class="content-resource">
+                    <a href="{{ path('app_resource_show', { 'id' : resource.id } ) }}">
+                        <img src="{{ resource.cover }}" alt="">
+                        <div class="content-resource-info">
+                            information ici
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+
+            <a href="{{ path('app_resource_new') }}">
+                <div class="content-add">
+                    <h1>+</h1>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock %}

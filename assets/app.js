@@ -13,6 +13,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import './bootstrap';
 import '@fortawesome/fontawesome-free/js/all.js';
 
+// carousel
+
 window.onload = function() {
 
     let slider = document.querySelector('#slider');
@@ -99,6 +101,126 @@ window.onload = function() {
         line.style.animation = 'line ' + (time / 1000) + 's linear infinite';
     }
 }
+
+// apercu image - text in add - edit 
+
+const categoryH1 = document.getElementById("category_label");
+const ambianceH1 = document.getElementById("ambiance_label");
+const readerImg = new FileReader();
+const fileInputCategory = document.getElementById("category_picture");
+const fileInputAmbiance = document.getElementById("ambiance_picture");
+const fileInputResource = document.getElementById("resource_cover");
+
+if (categoryH1) {
+    categoryH1.addEventListener('change', e => {
+        const h1 = e.target.value;
+        document.getElementById("input-label").innerText = h1;
+    })
+} else if (ambianceH1) {
+    ambianceH1.addEventListener('change', e => {
+        const h1 = e.target.value;
+        document.getElementById("input-label").innerText = h1;
+    })
+}
+
+readerImg.onload = e => {
+    img.src = e.target.result;
+}
+
+if (fileInputCategory) {
+    fileInputCategory.addEventListener('change', e => {
+        const picture = e.target.files[0];
+        readerImg.readAsDataURL(picture);
+    })
+} else if (fileInputAmbiance) {
+    fileInputAmbiance.addEventListener('change', e => {
+        const picture = e.target.files[0];
+        readerImg.readAsDataURL(picture);
+    })
+} else if (fileInputResource) {
+    fileInputResource.addEventListener('change', e => {
+        const cover = e.target.files[0];
+        readerImg.readAsDataURL(cover);
+    })
+}
+
+// carousel filter category - ambiance
+
+const $carouselCat = document.querySelector('.container-category');
+const $seatsCat = document.querySelectorAll('.content-category');
+
+const $carouselAmb = document.querySelector('.container-ambiance');
+const $seatsAmb = document.querySelectorAll('.content-ambiance');
+document.addEventListener("click", delegate(toggleFilter, toggleHandler));
+
+// Common helper for event delegation.
+function delegate(criteria, listener) {
+    return function(e) {
+        const el = e.target;
+        do {
+            if (!criteria(el)) {
+                continue;
+            }
+            e.delegateTarget = el;
+            listener.call(this, e);
+            return;
+        } while ((el = el.parentNode));
+    };
+}
+
+// Custom filter to check for required DOM elements
+function toggleFilter(elem) {
+    return (elem instanceof HTMLElement) && elem.matches(".toggleCat");
+    // OR
+    // For < IE9
+    // return elem.classList && elem.classList.contains('btn');
+}
+
+// Custom event handler function
+function toggleHandler(e) {
+    var $newSeat;
+    const $el = document.querySelector('.is-ref');
+    const $currSliderControl = e.delegateTarget;
+    // Info: e.target is what triggers the event dispatcher to trigger and e.currentTarget is what you assigned your listener to.
+
+    $el.classList.remove('is-ref');
+    if ($currSliderControl.getAttribute('data-toggle') === 'next') {
+        $newSeat = next($el);
+        $carouselCat.classList.remove('is-reversing');
+    } else {
+        $newSeat = prev($el);
+        $carouselCat.classList.add('is-reversing');
+    }
+
+    $newSeat.classList.add('is-ref');
+    $newSeat.style.order = 1;
+    for (var i = 2; i <= $seatsCat.length; i++) {
+        $newSeat = next($newSeat);
+        $newSeat.style.order = i;
+    }
+
+    $carouselCat.classList.remove('is-set');
+    return setTimeout(function() {
+        return $carouselCat.classList.add('is-set');
+    }, 50);
+
+    function next($el) {
+        if ($el.nextElementSibling) {
+            return $el.nextElementSibling;
+        } else {
+            return $carouselCat.firstElementChild;
+        }
+    }
+
+    function prev($el) {
+        if ($el.previousElementSibling) {
+            return $el.previousElementSibling;
+        } else {
+            return $carouselCat.lastElementChild;
+        }
+    }
+}
+
 
 
 

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Ambiance{% endblock %}
+
+{% block body %}
+    <div class="container-content">
+        <h1>Edit Ambiance</h1>
+
+        <div class="content-views">
+            <div class="content-ambiance" id="content-ambiance">
+                <label for="file"><img id="img" src="{{ ambiance.picture }}"></label>
+                <h1 id="input-label">{{ ambiance.label }}</h1>
+            </div>
+        </div>
+
+        {{ include('admin/ambiance/_form.html.twig', {'button_label': 'Update'}) }}
+
+        <a href="{{ path('app_ambiance_index') }}">back to list</a>
+
+        {{ include('admin/ambiance/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

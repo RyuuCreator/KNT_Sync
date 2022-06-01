@@ -32,9 +32,36 @@
         <div id="dots"></div>
     </div>
     <div class="container-content">
-        <h1>Accueil</h1>
+        <div class="container-cat-amb">
+            <div class="container-category">
+                <div class='controls'>
+                    <button class='toggleCat'>Prev</button>
+                    <button class='toggleCat' data-toggle='next'>Next</button>
+                </div>
+                {% for category in categories %}
+                    <div class="content-category is-ref">
+                        <img src="{{ category.picture }}" alt="">
+                        <h1>{{ category.label }}</h1>
+                    </div>
+                {% endfor %}
+            </div>
 
-        
+            <div class="container-ambiance">
+                <div class='controls'>
+                    <button class='toggleAmb'>Prev</button>
+                    <button class='toggleAmb' data-toggle='next'>Next</button>
+                </div>
+                {% for ambiance in ambiances %}
+                    <div class="content-ambiance is-ref">
+                        <img src="{{ ambiance.picture }}" alt="">
+                        <h1>{{ ambiance.label }}</h1>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="container-ressource">
+            <h1>Ressource</h1>
+        </div>
     </div>
 {% endblock %}
 

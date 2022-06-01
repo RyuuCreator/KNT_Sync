@@ -1,22 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category index{% endblock %}
+{% block title %}Ambiance index{% endblock %}
 
 {% block body %}
     <div class="container-content">
         <h1>Administration</h1>
         <small>Retourner sur votre espace <a href="{{ path("app_admin") }}"><u>administrateur</u></a></small>
 
-        <h3>Catégories</h3>
-        <div class="container-category">
-            {% for category in categories %}
-                <div class="content-category">
-                    <img src="{{ category.picture }}" alt="">
-                    <h1>{{ category.label }}</h1>
+        <h3>Ambiances</h3>
+        <div class="container-ambiance">
+            {% for ambiance in ambiances %}
+                <div class="content-ambiance">
+                    <img src="{{ ambiance.picture }}" alt="">
+                    <h1>{{ ambiance.label }}</h1>
                 </div>
             {% endfor %}
 
-            <a href="{{ path('app_category_new') }}">
+            <a href="{{ path('app_ambiance_new') }}">
                 <div class="content-add">
                     <h1>+</h1>
                 </div>

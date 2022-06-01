@@ -26,7 +26,7 @@ class Ambiance
     #[ORM\Column(type: 'string', length: 128, unique: true)]
     private $slug;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'text')]
     private $picture;
 
     public function __construct()

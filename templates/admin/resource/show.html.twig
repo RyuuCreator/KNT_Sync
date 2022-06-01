@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resource{% endblock %}
+
+{% block body %}
+    <div class="container-content">
+        <h1>Ressource</h1>
+        <small>Retourner sur votre espace <a href="{{ path("app_admin") }}"><u>administrateur</u></a></small>
+
+        <div class="content-resource">
+            <a href="{{ path('app_resource_show', { 'id' : resource.id } ) }}">
+                <img src="{{ resource.cover }}" alt="">
+                <div class="content-resource-info">
+                    <h1>{{ resource.trackname }}</h1>
+                    <h2>{{ resource.artistname }}</h1>
+                    <p>{{ resource.description }}</p>
+                </div>
+            </a>
+        </div>
+
+        <a href="{{ path('app_resource_index') }}">back to list</a>
+
+        <a href="{{ path('app_resource_edit', {'id': resource.id}) }}">edit</a>
+
+        {{ include('admin/resource/_delete_form.html.twig') }}
+    </div>
+{% endblock %}
