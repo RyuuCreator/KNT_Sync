@@ -34,10 +34,6 @@
     <div class="container-content">
         <div class="container-cat-amb">
             <div class="container-category">
-                <div class='controls'>
-                    <button class='toggleCat'>Prev</button>
-                    <button class='toggleCat' data-toggle='next'>Next</button>
-                </div>
                 {% for category in categories %}
                     <div class="content-category is-ref">
                         <img src="{{ category.picture }}" alt="">
@@ -47,10 +43,6 @@
             </div>
 
             <div class="container-ambiance">
-                <div class='controls'>
-                    <button class='toggleAmb'>Prev</button>
-                    <button class='toggleAmb' data-toggle='next'>Next</button>
-                </div>
                 {% for ambiance in ambiances %}
                     <div class="content-ambiance is-ref">
                         <img src="{{ ambiance.picture }}" alt="">
