@@ -14,7 +14,9 @@
                     <a href="{{ path('app_resource_show', { 'id' : resource.id } ) }}">
                         <img src="{{ resource.cover }}" alt="">
                         <div class="content-resource-info">
-                            information ici
+                            <h1>{{ resource.trackname }}</h1>
+                            <h2>{{ resource.artistname }}</h1>
+                            <p>{{ resource.description|length > 150 ? resource.description|slice(0, 150) ~ '...' : resource.description }}</p>
                         </div>
                     </a>
                 </div>

@@ -19,7 +19,9 @@
         <div class="container">
             <div class="container-topbar">
                 <div class="search-nav">
-                    <i class="fa-solid fa-magnifying-glass"></i> Ici la futur barre de recherche
+                    {{ form_start(formSearch) }}
+                            <i class="fa-solid fa-magnifying-glass"></i> {{ form_row(formSearch.q) }}
+                    {{ form_end(formSearch) }}
                 </div>
                 {% if app.user %}
                     <a class="user-nav user-nav-account" href="{{ path('app_account') }}"><i class="fa-solid fa-user"></i></a>

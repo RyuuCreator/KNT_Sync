@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}KNT Sync - Mon compte{% endblock %}
+{% block title %}Mon compte - KNT Sync{% endblock %}
 
 {% block body %}
-    <div class="container-content">
+    <div class="container-content{% if block('player') is defined %}{% if app.user %} container-content-player {% endif %}{% endif %}">
         <h1>Votre compte</h1>
         {% if is_granted('ROLE_ADMIN') %}
             <small>Accéder a votre espace <a href="{{ path("app_admin") }}"><u>administrateur</u></a></small>

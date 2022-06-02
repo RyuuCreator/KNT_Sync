@@ -24,7 +24,7 @@
             </a>
         </div>
 
-        <h3>Ambiances</h3>
+        <h3><a href="{{ path('app_ambiance_index') }}">Ambiances</a></h3>
         <div class="container-ambiance">
             {% for ambiance in ambiances %}
                 <div class="content-ambiance">
@@ -42,7 +42,7 @@
             </a>
         </div>
 
-        <h3>Ressources</h3>
+        <h3><a href="{{ path('app_resource_index') }}">Ressources</a></h3>
         <div class="container-resource">
             {% for resource in resources %}
                 <div class="content-resource">
@@ -51,7 +51,7 @@
                         <div class="content-resource-info">
                             <h1>{{ resource.trackname }}</h1>
                             <h2>{{ resource.artistname }}</h1>
-                            <p>{{ resource.description }}</p>
+                            <p>{{ resource.description|length > 150 ? resource.description|slice(0, 150) ~ '...' : resource.description }}</p>
                         </div>
                     </a>
                 </div>

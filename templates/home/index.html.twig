@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}KNT Sync - Accueil{% endblock %}
+{% block title %}Accueil - KNT Sync{% endblock %}
 
 {% block carrousel %}{% endblock %}
 
@@ -31,28 +31,66 @@
         </div>
         <div id="dots"></div>
     </div>
-    <div class="container-content">
+    <div class="container-content{% if block('player') is defined %}{% if app.user %} container-content-player {% endif %}{% endif %}">
         <div class="container-cat-amb">
             <div class="container-category">
-                {% for category in categories %}
-                    <div class="content-category is-ref">
-                        <img src="{{ category.picture }}" alt="">
-                        <h1>{{ category.label }}</h1>
+                <div class="container-control">
+                    <div class="control-title">
+                        Catégories
                     </div>
-                {% endfor %}
+                    <div class="control">
+                        <div class="previous"><</div>
+                        <div class="next">></div>
+                    </div>
+                </div>
+                <div class="container-content-category">
+                    {% for category in categories %}
+                        <div class="content-category">
+                            <img src="{{ category.picture }}" alt="">
+                            <h1>{{ category.label }}</h1>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
 
             <div class="container-ambiance">
-                {% for ambiance in ambiances %}
-                    <div class="content-ambiance is-ref">
-                        <img src="{{ ambiance.picture }}" alt="">
-                        <h1>{{ ambiance.label }}</h1>
+                <div class="container-control">
+                    <div class="control-title">
+                        Ambiances
+                    </div>
+                    <div class="control">
+                        <div class="previous"><</div>
+                        <div class="next">></div>
+                    </div>
+                </div>
+                <div class="container-content-ambiance">
+                    {% for ambiance in ambiances %}
+                        <div class="content-ambiance">
+                            <img src="{{ ambiance.picture }}" alt="">
+                            <h1>{{ ambiance.label }}</h1>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="container-resource-home">
+            <div class="resource-home-title">
+                <h1>Ressource</h1>
+            </div>
+            <div class="container-content-resource">
+                {% for resource in resources %}
+                    <div class="content-resource">
+                        <a href="{{ path('app_resource_show', { 'id' : resource.id } ) }}">
+                            <img src="{{ resource.cover }}" alt="">
+                            <div class="content-resource-info">
+                                <h1>{{ resource.trackname }}</h1>
+                                <h2>{{ resource.artistname }}</h1>
+                                <p>{{ resource.description|length > 90 ? resource.description|slice(0, 90) ~ '...' : resource.description }}</p>
+                            </div>
+                        </a>
                     </div>
                 {% endfor %}
             </div>
-        </div>
-        <div class="container-ressource">
-            <h1>Ressource</h1>
         </div>
     </div>
 {% endblock %}

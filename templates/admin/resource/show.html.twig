@@ -13,12 +13,12 @@
                 <div class="content-resource-info">
                     <h1>{{ resource.trackname }}</h1>
                     <h2>{{ resource.artistname }}</h1>
-                    <p>{{ resource.description }}</p>
+                    <p>{{ resource.description|length > 150 ? resource.description|slice(0, 150) ~ '...' : resource.description }}</p>
                 </div>
             </a>
         </div>
 
-        <a href="{{ path('app_resource_index') }}">back to list</a>
+        <a href="{{ path('app_resource_index') }}">Retour au ressources</a>
 
         <a href="{{ path('app_resource_edit', {'id': resource.id}) }}">edit</a>
 

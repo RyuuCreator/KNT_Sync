@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use App\Data\SearchData;
 use App\Entity\Resource;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Resource>
@@ -39,20 +40,27 @@ class ResourceRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Resource[] Returns an array of Resource objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('r')
-//            ->andWhere('r.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('r.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+    * @return Resource[] Returns an array of Resource objects
+    */
+    public function findSearch(SearchData $search): array
+    {
+        $query = $this
+            ->createQueryBuilder('r')
+            ->select('c', 'a', 'r')
+            ->join('r.category', 'c')
+            ->join('r.ambiance', 'a');
+
+        if (!empty($search->q)) {
+            $query = $query
+                ->andWhere('r.artistname = :q')
+                ->andWhere('r.trackname = :q')
+                ->andWhere('r.description = :q')
+                ->setParameter('q', "%{$search->q}%");
+        }
+
+        return $query->getQuery()->getResult();
+    }
 
 //    public function findOneBySomeField($value): ?Resource
 //    {
