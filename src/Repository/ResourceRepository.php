@@ -49,14 +49,18 @@ class ResourceRepository extends ServiceEntityRepository
             ->createQueryBuilder('r')
             ->select('c', 'a', 'r')
             ->join('r.category', 'c')
-            ->join('r.ambiance', 'a');
+            ->join('r.ambiance', 'a')
+        ;
 
         if (!empty($search->q)) {
             $query = $query
-                ->andWhere('r.artistname = :q')
-                ->andWhere('r.trackname = :q')
-                ->andWhere('r.description = :q')
-                ->setParameter('q', "%{$search->q}%");
+                ->orWhere('r.artistname LIKE :q')
+                ->orWhere('r.trackname LIKE :q')
+                ->orWhere('r.description LIKE :q')
+                ->orWhere('c.label LIKE :q')
+                ->orWhere('a.label LIKE :q')
+                ->setParameter('q', "%{$search->q}%")
+            ;
         }
 
         return $query->getQuery()->getResult();

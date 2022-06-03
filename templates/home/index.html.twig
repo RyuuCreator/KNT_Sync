@@ -74,11 +74,18 @@
             </div>
         </div>
         <div class="container-resource-home">
+
+            {# {{ form_start(formSearch) }}
+                <pre>
+                    {{ dump(formSearch.categories) }}
+                </pre>
+            {{ form_end(formSearch) }} #}
+
             <div class="resource-home-title">
                 <h1>Ressource</h1>
             </div>
             <div class="container-content-resource">
-                {% for resource in resources %}
+                {% for resource in resourcesSearch %}
                     <div class="content-resource">
                         <a href="{{ path('app_resource_show', { 'id' : resource.id } ) }}">
                             <img src="{{ resource.cover }}" alt="">

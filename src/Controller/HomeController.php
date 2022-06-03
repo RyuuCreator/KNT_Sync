@@ -26,7 +26,7 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'categories' => $category->findAll(),
             'ambiances' => $ambiance->findAll(),
-            'resources' => $resources,
+            'resourcesSearch' => $resources,
             'formSearch' => $form->createView(),
         ]);
     }
