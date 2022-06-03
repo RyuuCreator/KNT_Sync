@@ -23,20 +23,20 @@ class SearchType extends AbstractType
                     'placeholder' => 'Rechercher'
                 ],
             ])
-            // ->add('categories', EntityType::class, [
-            //     'label' => false,
-            //     'required' => false,
-            //     'class' => Category::class,
-            //     'expanded' => true,
-            //     'multiple' => true,
-            // ])
-            // ->add('ambiances', EntityType::class, [
-            //     'label' => false,
-            //     'required' => false,
-            //     'class' => Ambiance::class,
-            //     'expanded' => true,
-            //     'multiple' => true,
-            // ])
+            ->add('categories', EntityType::class, [
+                'label' => false,
+                'required' => false,
+                'class' => Category::class,
+                'expanded' => true,
+                'multiple' => true,
+            ])
+            ->add('ambiances', EntityType::class, [
+                'label' => false,
+                'required' => false,
+                'class' => Ambiance::class,
+                'expanded' => true,
+                'multiple' => true,
+            ])
         ;
     }
 

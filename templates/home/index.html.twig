@@ -32,7 +32,7 @@
         <div id="dots"></div>
     </div>
     <div class="container-content{% if block('player') is defined %}{% if app.user %} container-content-player {% endif %}{% endif %}">
-        <div class="container-cat-amb">
+        {# <div class="container-cat-amb">
             <div class="container-category">
                 <div class="container-control">
                     <div class="control-title">
@@ -72,15 +72,71 @@
                     {% endfor %}
                 </div>
             </div>
+        </div>     #}
+        
+
+
+        <div class="container-cat-amb">
+            <div class="container-category">
+                <div class="container-control">
+                    <div class="control-title">
+                        Catégories
+                    </div>
+                    <div class="control">
+                        <div class="previous"><</div>
+                        <div class="next">></div>
+                    </div>
+                </div>
+                <div class="container-content-category">
+                    {{ form_start(formSearch) }}
+                        {% for i, cat in formSearch.categories %}
+                            <div class="content-category">
+                                <label for="categories_{{ i }}">
+                                    {% for category in categories %}
+                                        {% if category.id == i %}
+                                            <img src="{{ category.picture }}" alt="">
+                                            <h1>{{ category.label }}</h1>
+                                        {% endif %}
+                                    {% endfor %}
+                                </label>
+                                {{ form_widget(formSearch.categories[i]) }}
+                            </div>
+                        {% endfor %}
+                    {{ form_end(formSearch, {render_rest: false}) }}
+                </div>
+            </div>
+
+            <div class="container-ambiance">
+                <div class="container-control">
+                    <div class="control-title">
+                        Ambiances
+                    </div>
+                    <div class="control">
+                        <div class="previous"><</div>
+                        <div class="next">></div>
+                    </div>
+                </div>
+                <div class="container-content-ambiance">
+                    {{ form_start(formSearch) }}
+                        {% for i, amb in formSearch.ambiances %}
+                            <div class="content-ambiance">
+                                <label for="ambiances_{{ i }}">
+                                    {% for ambiance in ambiances %}
+                                        {% if ambiance.id == i %}
+                                            <img src="{{ ambiance.picture }}" alt="">
+                                            <h1>{{ ambiance.label }}</h1>
+                                        {% endif %}
+                                    {% endfor %}
+                                </label>
+                                {{ form_widget(formSearch.ambiances[i]) }}
+                            </div>
+                        {% endfor %}
+                    {{ form_end(formSearch, {render_rest: false}) }}
+                </div>
+            </div>
         </div>
+
         <div class="container-resource-home">
-
-            {# {{ form_start(formSearch) }}
-                <pre>
-                    {{ dump(formSearch.categories) }}
-                </pre>
-            {{ form_end(formSearch) }} #}
-
             <div class="resource-home-title">
                 <h1>Ressource</h1>
             </div>
