@@ -366,6 +366,13 @@ ul#move li img {
 	margin: 0 5px;
 }
 
+#previous-cat,
+#next-cat,
+#previous-amb,
+#next-amb {
+	cursor: pointer;
+}
+
 .container-content-category,
 .container-content-ambiance,
 .container-content-resource {

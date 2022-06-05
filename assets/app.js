@@ -14,11 +14,12 @@ import './bootstrap';
 import '@fortawesome/fontawesome-free/js/all.js';
 
 // add js personalized
-import FilterSearch from './js/filter-search'
-import FilterCheck from './js/filter-check'
+import FilterSearch from './js/filter-search';
+import FilterCheck from './js/filter-check';
 
-new FilterSearch(document.querySelector('.js-filter'))
-new FilterCheck(document.querySelector('.js-filter'))
+new FilterSearch(document.querySelector('.js-filter'));
+new FilterCheck(document.querySelector('.js-filter'));
 
-import './js/carousel'
-import './js/previous'
+import './js/carousel';
+import './js/previous';
+import './js/slide-cat-amb';

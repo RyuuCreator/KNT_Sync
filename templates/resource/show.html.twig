@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resource{% endblock %}
+
+{% block body %}
+    <div class="container-content">
+        <h1>Ressource</h1>
+
+        <div class="content-resource">
+            <a href="{{ path('app_resource_show', { 'id' : resource.id } ) }}">
+                <img src="{{ resource.cover }}" alt="">
+                <div class="content-resource-info">
+                    <h1>{{ resource.trackname }}</h1>
+                    <h2>{{ resource.artistname }}</h1>
+                    <p>{{ resource.description|length > 150 ? resource.description|slice(0, 150) ~ '...' : resource.description }}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock %}
