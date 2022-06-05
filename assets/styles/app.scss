@@ -331,7 +331,8 @@ ul#move li img {
 
 /* main - content home */
 
-.container-cat-amb {
+.container-cat-amb,
+.container-cat-amb .js-filter-form-check {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
@@ -365,8 +366,8 @@ ul#move li img {
 	margin: 0 5px;
 }
 
-.container-content-category form,
-.container-content-ambiance form,
+.container-content-category,
+.container-content-ambiance,
 .container-content-resource {
 	display: flex;
 	padding: 0;
@@ -375,7 +376,7 @@ ul#move li img {
 .container-cat-amb .content-category,
 .container-cat-amb .content-ambiance {
 	position: relative;
-	min-width: 150px;
+	width: 150px;
 	height: 50px;
 	margin: 15px 20px;
 	text-align: center;
@@ -385,6 +386,10 @@ ul#move li img {
 .container-cat-amb .content-category:hover,
 .container-cat-amb .content-ambiance:hover {
     box-shadow: 0px 10px 15px -10px rgb(0 0 0 / 75%);
+}
+
+.container-cat-amb label {
+	cursor: pointer;
 }
 
 .container-cat-amb input[type="checkbox"] {
@@ -586,6 +591,7 @@ form button:hover {
 
 .content-resource img {
 	height: 100%;
+	aspect-ratio: 1 / 1;
 }
 
 .content-category h1,

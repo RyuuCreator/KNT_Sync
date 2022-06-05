@@ -1,0 +1,12 @@
+{% for resource in resources %}
+    <div class="content-resource" id="resource-{{ resource.id }}">
+        <a href="#">
+            <img src="{{ resource.cover }}" alt="">
+            <div class="content-resource-info">
+                <h1>{{ resource.trackname }}</h1>
+                <h2>{{ resource.artistname }}</h1>
+                <p>{{ resource.description|length > 90 ? resource.description|slice(0, 90) ~ '...' : resource.description }}</p>
+            </div>
+        </a>
+    </div>
+{% endfor %}

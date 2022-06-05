@@ -3,23 +3,31 @@
 namespace App\Form;
 
 use App\Data\SearchData;
+use App\Entity\Ambiance;
+use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class SearchType extends AbstractType
+class CheckType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('q', TextType::class, [
+            ->add('categories', EntityType::class, [
                 'label' => false,
                 'required' => false,
-                'attr' => [
-                    'placeholder' => 'Rechercher'
-                ],
+                'class' => Category::class,
+                'expanded' => true,
+                'multiple' => true,
+            ])
+            ->add('ambiances', EntityType::class, [
+                'label' => false,
+                'required' => false,
+                'class' => Ambiance::class,
+                'expanded' => true,
+                'multiple' => true,
             ])
         ;
     }

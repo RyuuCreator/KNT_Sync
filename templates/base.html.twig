@@ -16,13 +16,12 @@
     </head>
 
     <body>
-        <div class="container">
+        <div class="container js-filter">
             <div class="container-topbar">
                 <div class="search-nav">
-                    {{ form_start(formSearch) }}
-                            <i class="fa-solid fa-magnifying-glass"></i> {{ form_row(formSearch.q) }}
-                    {{ form_end(formSearch, {render_rest: false}) }}
-                            {# <i class="fa-solid fa-magnifying-glass"></i> Barre de recherche. #}
+                {% if block('search') is defined %}
+                    {% include 'home/_search.html.twig' %}
+                {% endif %}
                 </div>
                 {% if app.user %}
                     <a class="user-nav user-nav-account" href="{{ path('app_account') }}"><i class="fa-solid fa-user"></i></a>

@@ -1,0 +1,57 @@
+<div class="container-cat-amb">
+    {{ form_start(formCheck, {attr: {class: 'js-filter-form-check'}}) }}
+        <div class="container-category">
+            <div class="container-control">
+                <div class="control-title">
+                    Catégories
+                </div>
+                <div class="control">
+                    <div class="previous"><</div>
+                    <div class="next">></div>
+                </div>
+            </div>
+            <div class="container-content-category">
+                {% for i, cat in formCheck.categories %}
+                    <div class="content-category">
+                        <label for="categories_{{ i }}">
+                            {% for category in categories %}
+                                {% if category.id == i %}
+                                    <img src="{{ category.picture }}" alt="">
+                                    <h1>{{ category.label }}</h1>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
+                        {{ form_widget(formCheck.categories[i]) }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="container-ambiance">
+            <div class="container-control">
+                <div class="control-title">
+                    Ambiances
+                </div>
+                <div class="control">
+                    <div class="previous"><</div>
+                    <div class="next">></div>
+                </div>
+            </div>
+            <div class="container-content-ambiance">
+                {% for i, amb in formCheck.ambiances %}
+                    <div class="content-ambiance">
+                        <label for="ambiances_{{ i }}">
+                            {% for ambiance in ambiances %}
+                                {% if ambiance.id == i %}
+                                    <img src="{{ ambiance.picture }}" alt="">
+                                    <h1>{{ ambiance.label }}</h1>
+                                {% endif %}
+                            {% endfor %}
+                        </label>
+                        {{ form_widget(formCheck.ambiances[i]) }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {{ form_end(formCheck, {render_rest: false}) }}
+</div>

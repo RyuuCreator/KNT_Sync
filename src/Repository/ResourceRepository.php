@@ -66,6 +66,35 @@ class ResourceRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
 
+    /**
+    * @return Resource[] Returns an array of Resource objects
+    */
+    public function findCheck(SearchData $check): array
+    {
+        $query = $this
+            ->createQueryBuilder('r')
+            ->select('c', 'a', 'r')
+            ->join('r.category', 'c')
+            ->join('r.ambiance', 'a')
+        ;
+
+        if (!empty($check->categories)) {
+            $query = $query
+                ->andWhere('c.id IN (:categories)')
+                ->setParameter('categories', $check->categories)
+            ;
+        }
+
+        if (!empty($check->ambiances)) {
+            $query = $query
+                ->andWhere('a.id IN (:ambiances)')
+                ->setParameter('ambiances', $check->ambiances)
+            ;
+        }
+
+        return $query->getQuery()->getResult();
+    }
+
 //    public function findOneBySomeField($value): ?Resource
 //    {
 //        return $this->createQueryBuilder('r')
