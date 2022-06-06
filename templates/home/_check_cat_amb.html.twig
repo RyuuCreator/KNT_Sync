@@ -12,6 +12,7 @@
             </div>
             <div class="container-content-category">
                 {% for i, cat in formCheck.categories %}
+                        {{ form_widget(formCheck.categories[i]) }}
                     <div class="content-category">
                         <label for="categories_{{ i }}">
                             {% for category in categories %}
@@ -21,7 +22,6 @@
                                 {% endif %}
                             {% endfor %}
                         </label>
-                        {{ form_widget(formCheck.categories[i]) }}
                     </div>
                 {% endfor %}
             </div>
@@ -39,6 +39,7 @@
             </div>
             <div class="container-content-ambiance">
                 {% for i, amb in formCheck.ambiances %}
+                    {{ form_widget(formCheck.ambiances[i]) }}
                     <div class="content-ambiance">
                         <label for="ambiances_{{ i }}">
                             {% for ambiance in ambiances %}
@@ -48,7 +49,6 @@
                                 {% endif %}
                             {% endfor %}
                         </label>
-                        {{ form_widget(formCheck.ambiances[i]) }}
                     </div>
                 {% endfor %}
             </div>
