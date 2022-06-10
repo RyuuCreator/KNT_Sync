@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Form\CheckType;
 use App\Data\SearchData;
 use App\Form\SearchType;
+use App\Data\SearchData1;
 use App\Repository\AmbianceRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\ResourceRepository;
@@ -20,19 +21,22 @@ class HomeController extends AbstractController
     public function index(CategoryRepository $category, AmbianceRepository $ambiance, ResourceRepository $resource, Request $request): Response
     {
         $data = new SearchData();
-        $formSearch = $this->createForm(SearchType::class, $data);
-        $formSearch->handleRequest($request);
         $formCheck = $this->createForm(CheckType::class, $data);
         $formCheck->handleRequest($request);
 
-        $resourcesSearch = $resource->findSearch($data);
         $resourcesCheck = $resource->findCheck($data);
 
         if ($request->get('ajax') == 1) {
-            return new JsonResponse([
-                'content' => $this->renderView('home/_resource.html.twig', ['resources' => $resourcesSearch,]),
-            ]);
+            if(isset($_GET['q'])){
+                $dataSearch = $_GET['q'];
+                $resourcesSearch = $resource->findSearch($dataSearch);
+
+                return new JsonResponse([
+                    'content' => ['resources' => $resourcesSearch]
+                ]);
+            }
         }
+
         if ($request->get('ajax') == 2) {
             return new JsonResponse([
                 'content' => $this->renderView('home/_resource.html.twig', ['resources' => $resourcesCheck,])
@@ -43,8 +47,20 @@ class HomeController extends AbstractController
             'categories' => $category->findAll(),
             'ambiances' => $ambiance->findAll(),
             'resources' => $resource->findAll(),
-            'formSearch' => $formSearch->createView(),
             'formCheck' => $formCheck->createView(),
+        ]);
+    }
+
+    public function searchBar(ResourceRepository $resource, Request $request)
+    {
+        $data = new SearchData1();
+        
+        $form = $this->createForm(SearchType::class, $data);
+        
+        $form->handleRequest($request);
+
+        return $this->render('home/_search.html.twig', [
+            'formSearch' => $form->createView(),
         ]);
     }
 }

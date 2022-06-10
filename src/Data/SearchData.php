@@ -7,10 +7,6 @@ use App\Entity\Ambiance;
 
 class SearchData
 {
-    /**
-     * @var string
-     */
-    public $q = '';
 
     /**
      * @var Category[]

@@ -1,21 +1,32 @@
 
-// Sets variables 
+// Sets variables for category
 const carouselSlideCat = document.querySelector('.container-content-category');
 const carouselCat = document.querySelectorAll('.container-content-category .content-category');
-const carouselSlideAmb = document.querySelector('.container-content-ambiance');
-const carouselAmb = document.querySelectorAll('.container-content-ambiance .content-ambiance');
 
 const prevBtnCat = document.querySelector('#previous-cat');
 const nextBtnCat = document.querySelector('#next-cat');
+
+let styleCat = getComputedStyle(carouselCat[0]); 
+const sizeCat = carouselCat[0].clientWidth + parseInt(styleCat.marginLeft) + parseInt(styleCat.marginRight);
+
+let counterCat = 0;
+
+
+// Sets variables for ambiance
+const carouselSlideAmb = document.querySelector('.container-content-ambiance');
+const carouselAmb = document.querySelectorAll('.container-content-ambiance .content-ambiance');
+
 const prevBtnAmb = document.querySelector('#previous-amb');
 const nextBtnAmb = document.querySelector('#next-amb');
 
-let counterCat = 0;
+let styleAmb = getComputedStyle(carouselAmb[0]);
+const sizeAmb = carouselCat[0].clientWidth + parseInt(styleAmb.marginLeft) + parseInt(styleAmb.marginRight);
+
 let counterAmb = 0;
-const sizeCat = carouselCat[0].clientWidth;
-const sizeAmb = carouselCat[0].clientWidth;
+
 carouselSlideCat.style.transform = 'translateX(' + -sizeCat * counterCat + 'px)';
 carouselSlideAmb.style.transform = 'translateX(' + -sizeAmb * counterAmb + 'px)';
+
 
 // FUNCTIONS
 

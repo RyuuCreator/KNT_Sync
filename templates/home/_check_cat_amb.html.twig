@@ -12,7 +12,7 @@
             </div>
             <div class="container-content-category">
                 {% for i, cat in formCheck.categories %}
-                        {{ form_widget(formCheck.categories[i]) }}
+                    {{ form_widget(formCheck.categories[i]) }}
                     <div class="content-category">
                         <label for="categories_{{ i }}">
                             {% for category in categories %}

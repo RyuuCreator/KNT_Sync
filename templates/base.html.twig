@@ -19,9 +19,10 @@
         <div class="container js-filter">
             <div class="container-topbar">
                 <div class="search-nav">
-                {% if block('search') is defined %}
-                    {% include 'home/_search.html.twig' %}
-                {% endif %}
+                    {# {% include 'home/_search.html.twig' %} #}
+                    {{ render(controller(
+                        'App\\Controller\\HomeController::searchBar'
+                    )) }}
                 </div>
                 {% if app.user %}
                     <a class="user-nav user-nav-account" href="{{ path('app_account') }}"><i class="fa-solid fa-user"></i></a>
@@ -50,6 +51,22 @@
                         </div>
                         <div class="menu-item">
                             <a href="#">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <div>
+                        <div class="menu-item">
+                            <a href="http://knt.fr/">Users</a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="#">Catégories</a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="{{ path('app_about') }}" class="about">Ambiances</a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="#">Ressources</a>
                         </div>
                     </div>
                 </div>

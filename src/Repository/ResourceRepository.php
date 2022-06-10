@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Data\SearchData;
 use App\Entity\Resource;
+use App\Data\SearchData1;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
@@ -43,7 +44,7 @@ class ResourceRepository extends ServiceEntityRepository
     /**
     * @return Resource[] Returns an array of Resource objects
     */
-    public function findSearch(SearchData $search): array
+    public function findSearch($search): array
     {
         $query = $this
             ->createQueryBuilder('r')
@@ -52,14 +53,14 @@ class ResourceRepository extends ServiceEntityRepository
             ->join('r.ambiance', 'a')
         ;
 
-        if (!empty($search->q)) {
+        if (!empty($search)) {
             $query = $query
                 ->orWhere('r.artistname LIKE :q')
                 ->orWhere('r.trackname LIKE :q')
                 ->orWhere('r.description LIKE :q')
                 ->orWhere('c.label LIKE :q')
                 ->orWhere('a.label LIKE :q')
-                ->setParameter('q', "%{$search->q}%")
+                ->setParameter('q', "%{$search}%")
             ;
         }
 
