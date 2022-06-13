@@ -13,10 +13,11 @@ export default class FilterCheck {
 			return;
 		}
 
-
-		this.content = element.querySelector('.js-filter-content');
-		this.form = element.querySelector('.js-filter-form-check');
-		this.bindEvents();
+		if (element.querySelector('.js-filter-form-check') != null) {
+			this.content = element.querySelector('.js-filter-content');
+			this.form = element.querySelector('.js-filter-form-check');
+			this.bindEvents();
+		}
 	}
 
 	/**

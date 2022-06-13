@@ -2,10 +2,10 @@
 
 namespace App\Controller;
 
-use App\Form\CheckType;
 use App\Data\SearchData;
+use App\Data\CheckData;
 use App\Form\SearchType;
-use App\Data\SearchData1;
+use App\Form\CheckType;
 use App\Repository\AmbianceRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\ResourceRepository;
@@ -20,7 +20,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(CategoryRepository $category, AmbianceRepository $ambiance, ResourceRepository $resource, Request $request): Response
     {
-        $data = new SearchData();
+        $data = new CheckData();
         $formCheck = $this->createForm(CheckType::class, $data);
         $formCheck->handleRequest($request);
 
@@ -32,7 +32,7 @@ class HomeController extends AbstractController
                 $resourcesSearch = $resource->findSearch($dataSearch);
 
                 return new JsonResponse([
-                    'content' => ['resources' => $resourcesSearch]
+                    'content' =>  $this->renderView('home/_resource.html.twig', ['resources' => $resourcesSearch])
                 ]);
             }
         }
@@ -53,7 +53,7 @@ class HomeController extends AbstractController
 
     public function searchBar(ResourceRepository $resource, Request $request)
     {
-        $data = new SearchData1();
+        $data = new SearchData();
         
         $form = $this->createForm(SearchType::class, $data);
         

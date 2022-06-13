@@ -5,6 +5,7 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -12,6 +13,7 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
         <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
     </head>
 
@@ -54,22 +56,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="sidebar-menu">
-                    <div>
-                        <div class="menu-item">
-                            <a href="http://knt.fr/">Users</a>
-                        </div>
-                        <div class="menu-item">
-                            <a href="#">Catégories</a>
-                        </div>
-                        <div class="menu-item">
-                            <a href="{{ path('app_about') }}" class="about">Ambiances</a>
-                        </div>
-                        <div class="menu-item">
-                            <a href="#">Ressources</a>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <div class="sidebar-menu">
+                        <div>
+                            <div class="menu-item">
+                                <a href="{{ path("app_admin") }}"><h3>Administration</h3></a>
+                            </div>
+                            <div class="menu-item">
+                                <a href="{{ path('app_user_index') }}">Utilisateurs</a>
+                            </div>
+                            <div class="menu-item">
+                                <a href="{{ path('app_category_index') }}">Catégories</a>
+                            </div>
+                            <div class="menu-item">
+                                <a href="{{ path('app_ambiance_index') }}" class="about">Ambiances</a>
+                            </div>
+                            <div class="menu-item">
+                                <a href="{{ path('app_resource_index') }}">Ressources</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                {% endif %}
 
                 <div class="sidebar-footer">
                     <div class="sidebar-info">

@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateur - KNT Sync{% endblock %}
+
+{% block body %}
+    <div class="container-content">
+        <h1>Utilisateurs</h1>
+
+        <div class="container-user">
+            <h3>Dernier utilisateur inscrit</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                        <th>Job</th>
+                        <th>Email</th>
+                        <th>Rôle</th>
+                        <th>Date de création</th>
+                        <th>Activer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                        {% if user.isActive == 0 %}
+                            <tr>
+                                <td>{{ user.id }}</td>
+                                <td>{{ user.firstname }}</td>
+                                <td>{{ user.lastname }}</td>
+                                <td>{{ user.job }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.roles[0]|trim('ROLE_', ('left'))|lower }}</td>
+                                <td>{{ user.createdAt ? user.createdAt|date('d/m/Y - H:i') : '' }}</td>
+                                <td>
+                                    <div class="form-switch">
+                                        <input type="checkbox" id="is-not-active{{ user.id }}" value="{{ user.isActive ? 1 : 0 }}" onclick='window.location.assign("{{path('app_user_active', {'id': user.id})}}")'>
+                                        <label class="form-check-label" for="is-not-active{{ user.id }}">
+                                            <span class="switch is-not-active"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h3>Utilisateur activé</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                        <th>Job</th>
+                        <th>Email</th>
+                        <th>Rôle</th>
+                        <th>Date de création</th>
+                        <th>Activer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                        {% if user.isActive == 1 %}
+                            <tr>
+                                <td>{{ user.id }}</td>
+                                <td>{{ user.firstname }}</td>
+                                <td>{{ user.lastname }}</td>
+                                <td>{{ user.job }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.roles[0]|trim('ROLE_', ('left'))|lower }}</td>
+                                <td>{{ user.createdAt ? user.createdAt|date('d/m/Y - H:i') : '' }}</td>
+                                <td>
+                                    <div class="form-switch">
+                                        <input type="checkbox" id="is-active{{ user.id }}" value="{{ user.isActive ? 1 : 0 }}" onclick='window.location.assign("{{path('app_user_disabled', {'id': user.id})}}")'>
+                                        <label class="form-check-label" for="is-active{{ user.id }}">
+                                            <span class="switch is-active"></span>
+                                        </label>
+                                    </div>    
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

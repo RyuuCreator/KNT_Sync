@@ -2,19 +2,11 @@
 
 namespace App\Data;
 
-use App\Entity\Category;
-use App\Entity\Ambiance;
-
 class SearchData
 {
-
     /**
-     * @var Category[]
+     * @var string
      */
-    public $categories = [];
+    public $q = '';
 
-    /**
-     * @var Ambiance[]
-     */
-    public $ambiances = [];
 }

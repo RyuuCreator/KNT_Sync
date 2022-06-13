@@ -3,8 +3,8 @@
 namespace App\Repository;
 
 use App\Data\SearchData;
+use App\Data\CheckData;
 use App\Entity\Resource;
-use App\Data\SearchData1;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
@@ -70,7 +70,7 @@ class ResourceRepository extends ServiceEntityRepository
     /**
     * @return Resource[] Returns an array of Resource objects
     */
-    public function findCheck(SearchData $check): array
+    public function findCheck(CheckData $check): array
     {
         $query = $this
             ->createQueryBuilder('r')

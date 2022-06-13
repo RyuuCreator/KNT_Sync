@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Data\SearchData;
+use App\Data\CheckData;
 use App\Entity\Ambiance;
 use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
@@ -35,7 +35,7 @@ class CheckType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => SearchData::class,
+            'data_class' => CheckData::class,
             'method' => 'GET',
             'csrf_protection' => false,
         ]);

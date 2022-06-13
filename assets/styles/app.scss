@@ -157,6 +157,10 @@ input:-webkit-autofill {
 	align-items: center;
 }
 
+.sidebar-menu div {
+	width: 80%;
+}
+
 .menu-item {
 	font-weight: bold;
 	margin: 15px;
@@ -535,7 +539,8 @@ form button:hover {
 
 .container-category,
 .container-ambiance,
-.container-resource {
+.container-resource,
+.container-user {
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
@@ -645,6 +650,104 @@ form button:hover {
 }
 .content-resource-info p {
 	font-size: 1rem;
+}
+
+.table {
+	width: 100%;
+    max-width: 100%;
+    margin-bottom: 3rem;
+    background-color: transparent;
+	border-collapse: collapse;
+	display: table;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+	border: 1px solid #dee2e6;
+}
+
+.table thead th {
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table td, .table th {
+	text-align: center;
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+}
+
+.form-switch {
+    position: relative;
+    cursor: pointer;
+}
+
+.form-switch input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    min-height: auto;
+}
+
+.form-switch label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 0!important;
+}
+
+.switch {
+    flex: none;
+    width: 40px;
+    height: 20px;
+    display: inline-block;
+    border: 1px solid #76778f;
+    box-shadow: 0 1px 4px rgb(213 222 233 / 20%);
+    border-radius: 100px;
+    margin-right: calc(1 * 8px);
+    transition: background .3s;
+}
+
+.switch::before {
+    content: "";
+    display: block;
+    height: 18px;
+    width: 18px;
+    background: #ffffff;
+    border: 1px solid #8184a8;
+    box-shadow: 0 1px 4px rgb(213 222 233 / 20%);
+    border-radius: 100px;
+    transition: transform .3s;
+}
+
+.is-active {
+	background: #2ecf81;
+}
+
+.is-active::before {
+    transform: translateX(20px);
+}
+
+.container-user input:checked + label .is-active::before {
+    transform: translateX(0px);
+}
+
+.container-user input:checked + label .is-active {
+	background: red;
+}
+
+.is-not-active {
+	background: red;
+}
+
+.container-user input:checked + label .is-not-active::before {
+    transform: translateX(20px);
+}
+
+.container-user input:checked + label .is-not-active {
+	background: #2ecf81;
 }
 
 /* main - container about */

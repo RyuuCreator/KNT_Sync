@@ -42,7 +42,7 @@ class RegisterController extends AbstractController
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
 
-                $notification = 'Votre inscription c\'est correctement dérouler, vous pouvez maintenant vous connecter a votre compte.';
+                $notification = 'Votre inscription c\'est correctement dérouler, veuillez attendre qu\'un admin active votre compte.';
             } else {
                 $notification = 'L\'email que vous avez renseigné existe déjà.';
             }

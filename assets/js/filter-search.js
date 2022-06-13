@@ -13,7 +13,6 @@ export default class FilterSearch {
 			return;
 		}
 
-
 		this.content = element.querySelector('.js-filter-content');
 		this.form = element.querySelector('.js-filter-form-search');
 		this.bindEvents();
@@ -23,9 +22,7 @@ export default class FilterSearch {
 	 * Ajoute les comportements aux différents éléments
 	 */
 	bindEvents() {
-		this.form.querySelectorAll('input').forEach((input) => {
-			input.addEventListener('change', this.loadForm.bind(this));
-		});
+		this.form.querySelector('input').addEventListener('keyup', this.loadForm.bind(this));
 	}
 
 	async loadForm() {
