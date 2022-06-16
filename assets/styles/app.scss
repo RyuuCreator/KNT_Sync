@@ -754,9 +754,10 @@ form button:hover {
 	background: $secondary-color;
 }
 
-/* main - container about */
+/* main - container about / partner */
 
-.aboutContent {
+.aboutContent,
+.partnerContent {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
