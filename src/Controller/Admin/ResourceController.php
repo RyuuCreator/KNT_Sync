@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/admin/resource')]
 class ResourceController extends AbstractController
 {
-    #[Route('/', name: 'app_resource_index', methods: ['GET'])]
+    #[Route('/', name: 'app_admin_resource_index', methods: ['GET'])]
     public function index(ResourceRepository $resourceRepository): Response
     {
         return $this->render('admin/resource/index.html.twig', [
@@ -21,7 +21,7 @@ class ResourceController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_resource_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'app_admin_resource_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ResourceRepository $resourceRepository): Response
     {
         $resource = new Resource();
@@ -48,7 +48,7 @@ class ResourceController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_resource_show', methods: ['GET'])]
+    #[Route('/{slug}', name: 'app_admin_resource_show', methods: ['GET'])]
     public function show(Resource $resource): Response
     {
         return $this->render('admin/resource/show.html.twig', [
@@ -56,7 +56,7 @@ class ResourceController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_resource_edit', methods: ['GET', 'POST'])]
+    #[Route('/edit/{slug}', name: 'app_admin_resource_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Resource $resource, ResourceRepository $resourceRepository): Response
     {
         $form = $this->createForm(ResourceType::class, $resource);
@@ -65,7 +65,7 @@ class ResourceController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $resourceRepository->add($resource, true);
 
-            return $this->redirectToRoute('app_resource_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_resource_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/resource/edit.html.twig', [
@@ -74,13 +74,13 @@ class ResourceController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_resource_delete', methods: ['POST'])]
+    #[Route('/{slug}', name: 'app_admin_resource_delete', methods: ['POST'])]
     public function delete(Request $request, Resource $resource, ResourceRepository $resourceRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$resource->getId(), $request->request->get('_token'))) {
             $resourceRepository->remove($resource, true);
         }
 
-        return $this->redirectToRoute('app_resource_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_admin_resource_index', [], Response::HTTP_SEE_OTHER);
     }
 }

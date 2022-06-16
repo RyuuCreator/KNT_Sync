@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/resource')]
 class ResourceController extends AbstractController
 {
-    #[Route('/{id}', name: 'app_resource_show', methods: ['GET'])]
+    #[Route('/{slug}', name: 'app_resource_show', methods: ['GET'])]
     public function show(Resource $resource): Response
     {
         return $this->render('resource/show.html.twig', [

@@ -8,19 +8,17 @@
         <small>Retourner sur votre espace <a href="{{ path("app_admin") }}"><u>administrateur</u></a></small>
 
         <div class="content-resource">
-            <a href="{{ path('app_resource_show', { 'id' : resource.id } ) }}">
-                <img src="{{ resource.cover }}" alt="">
-                <div class="content-resource-info">
-                    <h1>{{ resource.trackname }}</h1>
-                    <h2>{{ resource.artistname }}</h1>
-                    <p>{{ resource.description|length > 150 ? resource.description|slice(0, 150) ~ '...' : resource.description }}</p>
-                </div>
-            </a>
+            <img src="{{ resource.cover }}" alt="">
+            <div class="content-resource-info">
+                <h1>{{ resource.trackname }}</h1>
+                <h2>{{ resource.artistname }}</h1>
+                <p>{{ resource.description|length > 150 ? resource.description|slice(0, 150) ~ '...' : resource.description }}</p>
+            </div>
         </div>
 
-        <a href="{{ path('app_resource_index') }}">Retour au ressources</a>
+        <a href="{{ path('app_admin_resource_index') }}">Retour au ressources</a>
 
-        <a href="{{ path('app_resource_edit', {'id': resource.id}) }}">edit</a>
+        <a href="{{ path('app_admin_resource_edit', {'slug': resource.slug}) }}">edit</a>
 
         {{ include('admin/resource/_delete_form.html.twig') }}
     </div>

@@ -1,6 +1,6 @@
 {% for resource in resources %}
     <div class="content-resource" id="resource-{{ resource.id }}">
-        <a href="{{ path('app_resource_show', { 'id' : resource.id }) }}">
+        <a href="{{ path('app_resource_show', { 'slug' : resource.slug }) }}">
             <img src="{{ resource.cover }}" alt="">
             <div class="content-resource-info">
                 <h1>{{ resource.trackname }}</h1>

@@ -43,10 +43,10 @@
                 <div class="sidebar-menu">
                     <div>
                         <div class="menu-item">
-                            <a href="http://knt.fr/">KNT Music & Live</a>
+                            <a href="http://knt.fr/" target="_blank">KNT Music & Live</a>
                         </div>
                         <div class="menu-item">
-                            <a href="#">Partenaires</a>
+                            <a href="{{ path('app_partner') }}">Partenaires</a>
                         </div>
                         <div class="menu-item">
                             <a href="{{ path('app_about') }}" class="about">Qui sommes-nous ?</a>
@@ -63,16 +63,16 @@
                                 <a href="{{ path("app_admin") }}"><h3>Administration</h3></a>
                             </div>
                             <div class="menu-item">
-                                <a href="{{ path('app_user_index') }}">Utilisateurs</a>
+                                <a href="{{ path('app_admin_user_index') }}">Utilisateurs</a>
                             </div>
                             <div class="menu-item">
-                                <a href="{{ path('app_category_index') }}">Catégories</a>
+                                <a href="{{ path('app_admin_category_index') }}">Catégories</a>
                             </div>
                             <div class="menu-item">
-                                <a href="{{ path('app_ambiance_index') }}" class="about">Ambiances</a>
+                                <a href="{{ path('app_admin_ambiance_index') }}" class="about">Ambiances</a>
                             </div>
                             <div class="menu-item">
-                                <a href="{{ path('app_resource_index') }}">Ressources</a>
+                                <a href="{{ path('app_admin_resource_index') }}">Ressources</a>
                             </div>
                         </div>
                     </div>

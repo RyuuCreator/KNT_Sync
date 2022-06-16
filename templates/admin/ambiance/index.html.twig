@@ -3,20 +3,23 @@
 {% block title %}Ambiance index{% endblock %}
 
 {% block body %}
-    <div class="container-content">
+    <div class="container-content{% if block('player') is defined %}{% if app.user %} container-content-player {% endif %}{% endif %}">
         <h1>Administration</h1>
         <small>Retourner sur votre espace <a href="{{ path("app_admin") }}"><u>administrateur</u></a></small>
 
         <h3>Ambiances</h3>
         <div class="container-ambiance">
             {% for ambiance in ambiances %}
+
                 <div class="content-ambiance">
-                    <img src="{{ ambiance.picture }}" alt="">
-                    <h1>{{ ambiance.label }}</h1>
+                    <a href="{{ path('app_admin_ambiance_show', { 'slug' : ambiance.slug } ) }}">
+                        <img src="{{ ambiance.picture }}" alt="">
+                        <h1>{{ ambiance.label }}</h1>
+                    </a>
                 </div>
             {% endfor %}
 
-            <a href="{{ path('app_ambiance_new') }}">
+            <a href="{{ path('app_admin_ambiance_new') }}">
                 <div class="content-add">
                     <h1>+</h1>
                 </div>

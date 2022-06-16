@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Qui sommes-nous? - KNT Sync{% endblock %}
+
+{% block body %}
+    <div class="container-content{% if block('player') is defined %}{% if app.user %} container-content-player {% endif %}{% endif %}">
+        <div class="aboutContent">
+            <h1>
+                Nos partenaires
+            </h1>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block player %}{% endblock %}

@@ -24,9 +24,7 @@ class RegisterType extends AbstractType
                 'label' => 'Email',
                 'constraints' => new Length ([
                     'min' => 5,
-                    'max' => 100,
-                    'minMessage' => 'Votre mot de passe doit contenir au moins {{ limit }} caractères.',
-                    'maxMessage' => 'Votre mot de passe peut contenir au maximum {{ limit }} caractères.'
+                    'minMessage' => 'Votre mot de passe doit contenir au moins {{ limit }} caractères.'
                 ]),
                 'attr' => [
                     "placeholder" => 'Entrer votre email'
@@ -57,9 +55,7 @@ class RegisterType extends AbstractType
                 'label' => 'Prénom',
                 'constraints' => new Length([
                     'min' => 3,
-                    'max' => 30,
-                    'minMessage' => 'Votre prénom doit contenir au moins {{ limit }} caractères.',
-                    'maxMessage' => 'Votre prénom peut contenir au maximum {{ limit }} caractères.'
+                    'minMessage' => 'Votre prénom doit contenir au moins {{ limit }} caractères.'
                 ]),
                 'attr' => [
                     'placeholder' => 'Entrer votre prénom.'
@@ -69,9 +65,7 @@ class RegisterType extends AbstractType
                 'label' => 'Nom',
                 'constraints' => new Length([
                     'min' => 2,
-                    'max' => 60,
-                    'minMessage' => 'Votre nom doit contenir au moins {{ limit }} caractères.',
-                    'maxMessage' => 'Votre nom peut contenir au maximum {{ limit }} caractères.'
+                    'minMessage' => 'Votre nom doit contenir au moins {{ limit }} caractères.'
                 ]),
                 'attr' => [
                     'placeholder' => 'Entrer votre nom.'

@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/admin/ambiance')]
 class AmbianceController extends AbstractController
 {
-    #[Route('/', name: 'app_ambiance_index', methods: ['GET'])]
+    #[Route('/', name: 'app_admin_ambiance_index', methods: ['GET'])]
     public function index(AmbianceRepository $ambianceRepository): Response
     {
         return $this->render('/admin/ambiance/index.html.twig', [
@@ -21,7 +21,7 @@ class AmbianceController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_ambiance_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'app_admin_ambiance_new', methods: ['GET', 'POST'])]
     public function new(Request $request, AmbianceRepository $ambianceRepository): Response
     {
         $ambiance = new Ambiance();
@@ -48,7 +48,7 @@ class AmbianceController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_ambiance_show', methods: ['GET'])]
+    #[Route('/{slug}', name: 'app_admin_ambiance_show', methods: ['GET'])]
     public function show(Ambiance $ambiance): Response
     {
         return $this->render('/admin/ambiance/show.html.twig', [
@@ -56,7 +56,7 @@ class AmbianceController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_ambiance_edit', methods: ['GET', 'POST'])]
+    #[Route('/edit/{slug}', name: 'app_admin_ambiance_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Ambiance $ambiance, AmbianceRepository $ambianceRepository): Response
     {
         $form = $this->createForm(AmbianceType::class, $ambiance);
@@ -74,7 +74,7 @@ class AmbianceController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_ambiance_delete', methods: ['POST'])]
+    #[Route('/{slug}', name: 'app_admin_ambiance_delete', methods: ['POST'])]
     public function delete(Request $request, Ambiance $ambiance, AmbiancesRepository $ambianceRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$ambiance->getId(), $request->request->get('_token'))) {

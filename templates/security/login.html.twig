@@ -3,7 +3,7 @@
 {% block title %}Connexion - KNT Sync{% endblock %}
 
 {% block body %}
-    <div class="container-content">
+    <div class="container-content{% if block('player') is defined %}{% if app.user %} container-content-player {% endif %}{% endif %}">
         <h1>Connexion</h1>
 
         <form method="post">
@@ -13,7 +13,7 @@
 
             {% if app.user %}
                 <div>
-                    You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
                 </div>
             {% endif %}
 
@@ -22,7 +22,16 @@
                     <label for="inputEmail">Votre email</label>
                 </div>
                 <div class="form-input">
-                    <input type="email" placeholder="Entrer votre email" value="{{ last_username }}" name="email" id="inputEmail" autocomplete="email" required autofocus>
+                    <input 
+                        type="email" 
+                        placeholder="Entrer votre email" 
+                        value="{{ last_username }}" 
+                        name="email" 
+                        id="inputEmail" 
+                        autocomplete="email" 
+                        required 
+                        autofocus
+                    >
                 </div>
             </div>
 
@@ -31,7 +40,14 @@
                     <label for="inputPassword">Votre password</label>
                 </div>
                 <div class="form-input">
-                    <input type="password" placeholder="Entrer votre mot de passe" name="password" id="inputPassword" autocomplete="current-password" required>
+                    <input 
+                        type="password" 
+                        placeholder="Entrer votre mot de passe" 
+                        name="password" 
+                        id="inputPassword" 
+                        autocomplete="current-password" 
+                        required
+                    >
                 </div>
             </div>
 

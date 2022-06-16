@@ -3,7 +3,7 @@
 {% block title %}Resource index{% endblock %}
 
 {% block body %}
-    <div class="container-content">
+    <div class="container-content{% if block('player') is defined %}{% if app.user %} container-content-player {% endif %}{% endif %}">
         <h1>Administration</h1>
         <small>Retourner sur votre espace <a href="{{ path("app_admin") }}"><u>administrateur</u></a></small>
 
@@ -11,7 +11,7 @@
         <div class="container-resource">
             {% for resource in resources %}
                 <div class="content-resource">
-                    <a href="{{ path('app_resource_show', { 'id' : resource.id } ) }}">
+                    <a href="{{ path('app_admin_resource_show', { 'slug' : resource.slug } ) }}">
                         <img src="{{ resource.cover }}" alt="">
                         <div class="content-resource-info">
                             <h1>{{ resource.trackname }}</h1>
@@ -22,7 +22,7 @@
                 </div>
             {% endfor %}
 
-            <a href="{{ path('app_resource_new') }}">
+            <a href="{{ path('app_admin_resource_new') }}">
                 <div class="content-add">
                     <h1>+</h1>
                 </div>

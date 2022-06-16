@@ -3,11 +3,11 @@
 {% block title %}Resource{% endblock %}
 
 {% block body %}
-    <div class="container-content">
+    <div class="container-content{% if block('player') is defined %}{% if app.user %} container-content-player {% endif %}{% endif %}">
         <h1>Ressource</h1>
 
         <div class="content-resource">
-            <a href="{{ path('app_resource_show', { 'id' : resource.id } ) }}">
+            <a href="{{ path('app_resource_show', { 'slug' : resource.slug } ) }}">
                 <img src="{{ resource.cover }}" alt="">
                 <div class="content-resource-info">
                     <h1>{{ resource.trackname }}</h1>

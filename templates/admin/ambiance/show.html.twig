@@ -12,9 +12,9 @@
             <h1>{{ ambiance.label }}</h1>
         </div>
 
-        <a href="{{ path('app_ambiance_index') }}">Retour au ambiances</a>
+        <a href="{{ path('app_admin_ambiance_index') }}">Retour au ambiances</a>
 
-        <a href="{{ path('app_ambiance_edit', {'id': ambiance.id}) }}">edit</a>
+        <a href="{{ path('app_admin_ambiance_edit', {'slug': ambiance.slug}) }}">edit</a>
 
         {{ include('admin/ambiance/_delete_form.html.twig') }}
     </div>

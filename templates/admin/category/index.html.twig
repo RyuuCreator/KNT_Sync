@@ -3,7 +3,7 @@
 {% block title %}Category index{% endblock %}
 
 {% block body %}
-    <div class="container-content">
+    <div class="container-content{% if block('player') is defined %}{% if app.user %} container-content-player {% endif %}{% endif %}">
         <h1>Administration</h1>
         <small>Retourner sur votre espace <a href="{{ path("app_admin") }}"><u>administrateur</u></a></small>
 
@@ -11,12 +11,14 @@
         <div class="container-category">
             {% for category in categories %}
                 <div class="content-category">
-                    <img src="{{ category.picture }}" alt="">
-                    <h1>{{ category.label }}</h1>
+                    <a href="{{ path('app_admin_category_show', { 'slug' : category.slug } ) }}">
+                        <img src="{{ category.picture }}" alt="">
+                        <h1>{{ category.label }}</h1>
+                    </a>
                 </div>
             {% endfor %}
 
-            <a href="{{ path('app_category_new') }}">
+            <a href="{{ path('app_admin_category_new') }}">
                 <div class="content-add">
                     <h1>+</h1>
                 </div>

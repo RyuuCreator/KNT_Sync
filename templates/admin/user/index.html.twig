@@ -3,7 +3,7 @@
 {% block title %}Utilisateur - KNT Sync{% endblock %}
 
 {% block body %}
-    <div class="container-content">
+    <div class="container-content{% if block('player') is defined %}{% if app.user %} container-content-player {% endif %}{% endif %}">
         <h1>Utilisateurs</h1>
 
         <div class="container-user">
@@ -34,7 +34,7 @@
                                 <td>{{ user.createdAt ? user.createdAt|date('d/m/Y - H:i') : '' }}</td>
                                 <td>
                                     <div class="form-switch">
-                                        <input type="checkbox" id="is-not-active{{ user.id }}" value="{{ user.isActive ? 1 : 0 }}" onclick='window.location.assign("{{path('app_user_active', {'id': user.id})}}")'>
+                                        <input type="checkbox" id="is-not-active{{ user.id }}" value="{{ user.isActive ? 1 : 0 }}" onclick='window.location.assign("{{path('app_admin_user_active', {'id': user.id})}}")'>
                                         <label class="form-check-label" for="is-not-active{{ user.id }}">
                                             <span class="switch is-not-active"></span>
                                         </label>
@@ -73,7 +73,7 @@
                                 <td>{{ user.createdAt ? user.createdAt|date('d/m/Y - H:i') : '' }}</td>
                                 <td>
                                     <div class="form-switch">
-                                        <input type="checkbox" id="is-active{{ user.id }}" value="{{ user.isActive ? 1 : 0 }}" onclick='window.location.assign("{{path('app_user_disabled', {'id': user.id})}}")'>
+                                        <input type="checkbox" id="is-active{{ user.id }}" value="{{ user.isActive ? 1 : 0 }}" onclick='window.location.assign("{{path('app_admin_user_disabled', {'id': user.id})}}")'>
                                         <label class="form-check-label" for="is-active{{ user.id }}">
                                             <span class="switch is-active"></span>
                                         </label>
