@@ -63,9 +63,17 @@ class ResourceController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $coverFile = $form->get('cover')->getData();
+            $path = $coverFile;
+            $type = pathinfo($path, PATHINFO_EXTENSION);
+            $data = file_get_contents($path);
+            $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+
+            $resource->setCover($base64);
+
             $resourceRepository->add($resource, true);
 
-            return $this->redirectToRoute('app_admin_resource_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/resource/edit.html.twig', [

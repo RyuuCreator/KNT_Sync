@@ -491,12 +491,23 @@ form button:hover {
 }
 
 .form-input input,
-.form-input select {
+.form-input select,
+.form-input textarea {
 	outline: none;
 	box-sizing: border-box;
 	width: 100%;
 	margin-top: 5px;
 	padding: 5px;
+	border-radius: 5px;
+	border: solid 1px #858585;
+}
+
+.form-input input[type="file"] {
+	border: none;
+}
+
+.form-input textarea {
+	height: 150px;
 }
 
 /* main - container account */

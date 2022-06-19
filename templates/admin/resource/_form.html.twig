@@ -1,4 +1,93 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="form-control">
+        <div class="form-label">
+            <label for="resource_cover">Image de la musique</label>
+        </div>
+        <div class="form-input">
+            {{ form_widget(form.cover) }}
+        </div>
+        <small>{{ form_help(form.cover) }}</small>
+        <div class="form-error">
+            {{ form_errors(form.cover) }}
+        </div>
+    </div>
+
+    <div class="form-control">
+        <div class="form-label">
+            <label for="resource_cover">Audio</label>
+        </div>
+        <div class="form-input">
+            {{ form_widget(form.audio) }}
+        </div>
+        <small>{{ form_help(form.audio) }}</small>
+        <div class="form-error">
+            {{ form_errors(form.audio) }}
+        </div>
+    </div>
+
+    <div class="form-control">
+        <div class="form-label">
+            <label for="resource_label">Titre de la musique</label>
+        </div>
+        <div class="form-input">
+            {{ form_widget(form.trackname) }}
+        </div>
+        <small>{{ form_help(form.trackname) }}</small>
+        <div class="form-error">
+            {{ form_errors(form.trackname) }}
+        </div>
+    </div>
+
+    <div class="form-control">
+        <div class="form-label">
+            <label for="resource_label">Nom de l'artite</label>
+        </div>
+        <div class="form-input">
+            {{ form_widget(form.artistname) }}
+        </div>
+        <small>{{ form_help(form.artistname) }}</small>
+        <div class="form-error">
+            {{ form_errors(form.artistname) }}
+        </div>
+    </div>
+
+    <div class="form-control">
+        <div class="form-label">
+            <label for="resource_label">Catégorie</label>
+        </div>
+        <div class="form-input">
+            {{ form_widget(form.category) }}
+        </div>
+        <small>{{ form_help(form.category) }}</small>
+        <div class="form-error">
+            {{ form_errors(form.category) }}
+        </div>
+    </div>
+
+    <div class="form-control">
+        <div class="form-label">
+            <label for="resource_label">Ambiances</label>
+        </div>
+        <div class="form-input">
+            {{ form_widget(form.ambiance) }}
+        </div>
+        <small>{{ form_help(form.ambiance) }}</small>
+        <div class="form-error">
+            {{ form_errors(form.ambiance) }}
+        </div>
+    </div>
+
+    <div class="form-control">
+        <div class="form-label">
+            <label for="resource_label">Description</label>
+        </div>
+        <div class="form-input">
+            {{ form_widget(form.description) }}
+        </div>
+        <small>{{ form_help(form.description) }}</small>
+        <div class="form-error">
+            {{ form_errors(form.description) }}
+        </div>
+    </div>
+    <button class="btn">{{ button_label|default('Valider') }}</button>
 {{ form_end(form) }}

@@ -63,6 +63,14 @@ class AmbianceController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $pictureFile = $form->get('picture')->getData();
+            $path = $pictureFile;
+            $type = pathinfo($path, PATHINFO_EXTENSION);
+            $data = file_get_contents($path);
+            $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+
+            $ambiance->setPicture($base64);
+
             $ambianceRepository->add($ambiance, true);
 
             return $this->redirectToRoute('app_admin', [], Response::HTTP_SEE_OTHER);
