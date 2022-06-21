@@ -2,6 +2,8 @@
 
 {% block title %} Qui sommes-nous? - KNT Sync{% endblock %}
 
+{% block carousel %}{% endblock %}
+
 {% block body %}
     <div class="container-content{% if block('player') is defined %}{% if app.user %} container-content-player {% endif %}{% endif %}">
         <div class="aboutContent">
@@ -17,24 +19,24 @@
                 La solution modulable pour l’habillage sonore de vos productions audiovisuelles.
             </h3>
 
-            <p>
-                KNT Sync vous propose des musiques inédites grâce à son catalogue exclusif riche en œuvres originales créées par des professionnels. Découvrez en quelques clics le talent de nos artistes !
-            </p>
+            <div class="content-paragraph">
+                <p>
+                    KNT Sync vous propose des musiques inédites grâce à son catalogue exclusif riche en œuvres originales créées par des professionnels. Découvrez en quelques clics le talent de nos artistes !
+                </p>
 
-            <p>
-                KNT Sync  répond à votre demande d’habillage sonore sur mesure avec son équipe et son studio de post production pour vous proposer l’identité sonore qui vous corresponde.
-            </p>
+                <p>
+                    KNT Sync  répond à votre demande d’habillage sonore sur mesure avec son équipe et son studio de post production pour vous proposer l’identité sonore qui vous corresponde.
+                </p>
 
-            <p>
-                KNT Sync  regroupe des compositeurs, des arrangeurs et des sound designers à votre disposition pour répondre à vos besoins et produire la musique originale dont vous rêvez. Publicité, jeux vidéo, Film, TV, KNT Sync fait sonner votre image.
-            </p>
+                <p>
+                    KNT Sync  regroupe des compositeurs, des arrangeurs et des sound designers à votre disposition pour répondre à vos besoins et produire la musique originale dont vous rêvez. Publicité, jeux vidéo, Film, TV, KNT Sync fait sonner votre image.
+                </p>
 
-            <p>
-                KNT Sync c’est aussi une équipe d’auteurs et de superviseurs artistiques à votre disposition pour vous accompagner à partir d’une page blanche dans la mise en place d’une ligne éditoriale en vous proposant le meilleur de notre catalogue.
-            </p>
+                <p>
+                    KNT Sync c’est aussi une équipe d’auteurs et de superviseurs artistiques à votre disposition pour vous accompagner à partir d’une page blanche dans la mise en place d’une ligne éditoriale en vous proposant le meilleur de notre catalogue.
+                </p>
+            </div>
         </div>
     </div>
 
 {% endblock %}
-
-{% block player %}{% endblock %}

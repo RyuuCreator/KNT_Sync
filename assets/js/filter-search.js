@@ -13,9 +13,11 @@ export default class FilterSearch {
 			return;
 		}
 
-		this.content = element.querySelector('.js-filter-content');
-		this.form = element.querySelector('.js-filter-form-search');
-		this.bindEvents();
+		if (element.querySelector('.js-filter-form-search') != null) {
+			this.content = element.querySelector('.js-filter-content');
+			this.form = element.querySelector('.js-filter-form-search');
+			this.bindEvents();
+		}
 	}
 
 	/**

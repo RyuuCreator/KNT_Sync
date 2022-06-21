@@ -21,18 +21,85 @@
         <div class="container js-filter">
             <div class="container-topbar">
                 <div class="search-nav">
-                    {# {% include 'home/_search.html.twig' %} #}
-                    {{ render(controller(
-                        'App\\Controller\\HomeController::searchBar'
-                    )) }}
+                    {% if block('search') is defined %}
+                        {# {% include 'home/_search.html.twig' %} #}
+                        {{ render(controller(
+                            'App\\Controller\\HomeController::searchBar'
+                        )) }}
+                    {% endif %}
                 </div>
                 {% if app.user %}
                     <a class="user-nav user-nav-account" href="{{ path('app_account') }}"><i class="fa-solid fa-user"></i></a>
-                    <a class="user-nav" href="{{ path('app_logout') }}">Déconnection</a>
+                    <a class="user-nav" href="{{ path('app_logout') }}">Déconnexion</a>
                 {% else %}
                     <a  class="user-nav user-nav-login" href="{{ path('app_login') }}">Connexion</a>
                     <a  class="user-nav" href="{{ path('app_register') }}">Inscription</a>
                 {% endif %}
+            </div>
+
+            <div class="container-topbar-mobile">
+                <div class="container-topbar-mobile-menu" id="menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="container-topbar-mobile-nav" id="nav">
+                    <div class="search-nav">
+                        {% if block('search') is defined %}
+                            {# {% include 'home/_search.html.twig' %} #}
+                            {{ render(controller(
+                                'App\\Controller\\HomeController::searchBar'
+                            )) }}
+                        {% endif %}
+                    </div>
+                    {% if app.user %}
+                        <a class="user-nav user-nav-account" href="{{ path('app_account') }}"><i class="fa-solid fa-user"></i></a>
+                        <a class="user-nav" href="{{ path('app_logout') }}">Déconnection</a>
+                    {% else %}
+                        <a  class="user-nav user-nav-login" href="{{ path('app_login') }}">Connexion</a>
+                        <a  class="user-nav" href="{{ path('app_register') }}">Inscription</a>
+                    {% endif %}
+
+symfony new KNT_Sync --full
+
+                    <div class="sidebar-menu">
+                        <div>
+                            <div class="menu-item">
+                                <a href="http://knt.fr/" target="_blank">KNT Music & Live</a>
+                            </div>
+                            <div class="menu-item">
+                                <a href="{{ path('app_partner') }}">Partenaires</a>
+                            </div>
+                            <div class="menu-item">
+                                <a href="{{ path('app_about') }}" class="about">Qui sommes-nous ?</a>
+                            </div>
+                            <div class="menu-item">
+                                <a href="#">Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <div class="sidebar-menu">
+                            <div>
+                                <div class="menu-item">
+                                    <a href="{{ path("app_admin") }}"><h3>Administration</h3></a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="{{ path('app_admin_user_index') }}">Utilisateurs</a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="{{ path('app_admin_category_index') }}">Catégories</a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="{{ path('app_admin_ambiance_index') }}" class="about">Ambiances</a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="{{ path('app_admin_resource_index') }}">Ressources</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
             </div>
 
             <div class="container-sidebar {% if block('player') is defined %}{% if app.user %} container-sidebar-player {% endif %}{% endif %}">
@@ -56,6 +123,7 @@
                         </div>
                     </div>
                 </div>
+
                 {% if is_granted('ROLE_ADMIN') %}
                     <div class="sidebar-menu">
                         <div>
@@ -91,6 +159,32 @@
             </div>
 
             <main class="container-main">
+                {% if block('carousel') is defined %}
+                    <div id="slider">
+                        <div id="line"></div>
+                        <ul id="move">
+                            <li>
+                                <img src="https://cdn.pixabay.com/photo/2014/05/21/15/47/piano-349928_960_720.jpg">
+                            </li>
+                            <li>
+                                <img src="https://cdn.pixabay.com/photo/2016/10/12/23/22/electric-guitar-1736291_960_720.jpg">
+                            </li>
+                            <li>
+                                <img src="https://cdn.pixabay.com/photo/2017/03/09/20/53/microphone-2130806_960_720.jpg">
+                            </li>
+                            <li>
+                                <img src="https://cdn.pixabay.com/photo/2017/03/19/18/39/turntable-2157300_960_720.jpg">
+                            </li>
+                        </ul>
+                        <div id="back">
+                            <
+                        </div>
+                        <div id="forword">
+                            >
+                        </div>
+                        <div id="dots"></div>
+                    </div>
+                {% endif %}
                 {% block body %}{% endblock %}
             </main>
         </div>
@@ -101,5 +195,15 @@
                 </div>
             {% endif %}
         {% endif %}
+        <div class="media-footer">
+            <div class="media-footer-info">
+                <a href="#">
+                    Mentions légales
+                </a>
+            </div>
+            <div class="media-footer-info copyright">
+                Copyright @ KNT2012
+            </div>
+        </div>
     </body>
 </html>
