@@ -23,13 +23,4 @@ new FilterCheck(document.querySelector('.js-filter'));
 import './js/carousel';
 import './js/previous';
 import './js/slide-cat-amb';
-
-// For toggling and finding number of children and other stuff is done here!
-
-const navigation = document.getElementById("nav");
-const menu = document.getElementById("menu");
-
-menu.addEventListener("click", () => {    
-    navigation.classList.toggle("active");
-    menu.classList.toggle("active");
-});
+import './js/nav-mobile';

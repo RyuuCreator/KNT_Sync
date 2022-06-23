@@ -22,6 +22,8 @@ $primary-color: #fff;
 $secondary-color: #2ecf81;
 $hover-color: #28b571;
 $border-color: #c7c7c7;
+$danger-color: #FF3519;
+$danger-hover-color: #E61C00;
 
 /* container global */
 
@@ -460,16 +462,18 @@ ul#move li img {
 
 /* main - container singin/singup*/
 
-.container-main form {
+.container-main forM {
 	width: 50%;
 }
 
 .form-control,
-form button {
+form button,
+.btn-edit {
 	margin: 10px 0;
 }
 
-form button {
+form button,
+.btn-edit {
 	width: 100%;
 	margin-top: 3rem;
 	font-size: 2rem;
@@ -481,8 +485,22 @@ form button {
 	cursor: pointer;
 }
 
-form button:hover {
+.btn-edit {
+	text-align: center;
+	width: 50%;
+}
+
+form button:hover,
+.btn-edit:hover {
 	background-color: $hover-color;
+}
+
+.btn-delete {
+	background: $danger-color;
+}
+
+.btn-delete:hover {
+	background: $danger-hover-color;
 }
 
 .form-control-group,
@@ -760,11 +778,11 @@ form button:hover {
 }
 
 .container-user input:checked + label .is-active {
-	background: red;
+	background: $danger-color;
 }
 
 .is-not-active {
-	background: red;
+	background: $danger-color;
 }
 
 .container-user input:checked + label .is-not-active::before {
