@@ -36,27 +36,27 @@ Accédez ensuite à votre application dans votre navigateur à l'adresse [http:/
 ## Screenshots
 
 ### Page d'inscription
-![Page d'inscription](img_md/register.png){width=400px} 
+![Page d'inscription](img_md/register.png) 
 Cette capture d'écran montre la page d'inscription où les utilisateurs peuvent créer un nouveau compte.
 
 ### Page de validation des utilisateurs
-![Page de validation des utilisateurs](img_md/validate_user.png){width=400px} 
+![Page de validation des utilisateurs](img_md/validate_user.png) 
 Cette capture d'écran présente la page de validation des utilisateurs où ils peuvent confirmer leur inscription.
 
 ### Page d'accueil
-![Page d'accueil](img_md/home_page.png){width=400px} 
+![Page d'accueil](img_md/home_page.png)
 Cette capture d'écran illustre la page d'accueil de l'application.
 
 ### Page des catégories admin
-![Page des catégories admin](img_md/categories.png){width=400px} 
+![Page des catégories admin](img_md/categories.png)
 Cette capture d'écran montre la page des catégories dans l'interface d'administration.
 
 ### Page de création de catégorie
-![Page de création de catégorie](img_md/create_category.png){width=400px} 
+![Page de création de catégorie](img_md/create_category.png)
 Cette capture d'écran présente la page permettant de créer une nouvelle catégorie dans l'interface d'administration.
 
 ### Page de création de ressource
-![Page de création de catégorie](img_md/create_resource.png){width=400px} 
+![Page de création de catégorie](img_md/create_resource.png)
 Cette capture d'écran présente la page permettant de créer une nouvelle ressource dans l'interface d'administration.
 
 ## Auteur
