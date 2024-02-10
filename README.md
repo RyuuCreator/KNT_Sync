@@ -2,7 +2,7 @@
 Projet Symfony - Stage
 
 ## Description
-Lors de mon stage effectué, j’ai participé au développement d’une solution de partage d’œuvres musicales non-libres de droit pour la société KNT, un professionnel du monde du spectacle.
+Lors de mon stage effectué, j’ai développé une solution de partage d’œuvres musicales non-libres de droit pour la société KNT, un professionnel du monde du spectacle.
 
 Pour mener à bien ce projet, nous avons utilisé la stack technique suivante :
 - PHP 8
