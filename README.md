@@ -2,9 +2,10 @@
 Projet Symfony - Stage
 
 ## Description
-Lors de mon stage effectué, j’ai développé une solution de partage d’œuvres musicales non-libres de droit pour la société KNT, un professionnel du monde du spectacle.
+Lors de mon stage effectué, j’ai développé une solution de partage d’œuvres musicales non libres de droits pour la société KNT, un professionnel du monde du spectacle.
 
-Pour mener à bien ce projet, nous avons utilisé la stack technique suivante :
+Pour mener à bien ce projet, j'ai utilisé la stack technique suivante:
+
 - PHP 8
 - MySQL v5.7
 - Framework Symfony 6 
@@ -13,9 +14,9 @@ Pour mener à bien ce projet, nous avons utilisé la stack technique suivante :
 - Vanilla JS
 - CSS Flexbox
 
-La plateforme permet un accès à des ressources protégées. Ces ressources sont administrables depuis un compte utilisateur dédié et des interfaces spécifiques. Elle permet également la création de comptes utilisateurs. Une création de compte nécessite toutefois l’approbation de l’administrateur. 
-Un utilisateur a la possibilité de rechercher des ressources par mot-clé. Il peut également effectuer des tris par (plusieurs) catégories/tag.
-Le moteur de template Twig, qui est inclus par défaut avec le Framework Symfony, est utilisé pour la création des interfaces.
+La plateforme permet un accès à des ressources protégées. Ces ressources sont administrables depuis un compte utilisateur dédié et des interfaces spécifiques. Elle permet également la création de comptes utilisateurs, laquelle nécessite toutefois l’approbation de l’administrateur. 
+Un utilisateur a la possibilité de rechercher des ressources par mot-clé et peut également effectuer des tris par plusieurs catégories/tag.
+Le moteur de template Twig, inclus par défaut avec le Framework Symfony, est utilisé pour la création des interfaces.
 
 ## Installation
 
@@ -27,7 +28,7 @@ Le moteur de template Twig, qui est inclus par défaut avec le Framework Symfony
 
 ## Utilisation
 
-Pour lancer le serveur de développement, exécutez la commande suivante :
+Pour lancer le serveur de développement, exécutez la commande suivante:
 
 **`php bin/console server:run`**
 
