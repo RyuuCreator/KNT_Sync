@@ -23,14 +23,14 @@ Le moteur de template Twig, inclus par défaut avec le Framework Symfony, est ut
 1. Clonez le dépôt : **`git clone https://github.com/RyuuCreator/KNT_Sync`**
 2. Installez les dépendances : **`composer install`**
 3. Configurez la base de données dans le fichier **`.env`**
-4. Créez la base de données : **`php bin/console doctrine:database:create`**
-5. Exécutez les migrations : **`php bin/console doctrine:migrations:migrate`**
+4. Créez la base de données : **`symfony console doctrine:database:create`**
+5. Exécutez les migrations : **`symfony console doctrine:migrations:migrate`**
 
 ## Utilisation
 
 Pour lancer le serveur de développement, exécutez la commande suivante:
 
-**`php bin/console server:run`**
+**`symfony server:start`**
 
 Accédez ensuite à votre application dans votre navigateur à l'adresse [http://localhost:8000](http://localhost:8000).
 
@@ -63,4 +63,4 @@ Cette capture d'écran présente la page permettant de créer une nouvelle resso
 ## Auteur
 
 
-- [Mickael Tailhades](https://github.com/RyuuCreator)
+- [Mickael Tailhades](https://www.linkedin.com/in/mickael-tailhades/)
